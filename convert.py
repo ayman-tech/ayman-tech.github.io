@@ -1,5 +1,6 @@
 import markdown
 import os
+import re
 from bs4 import BeautifulSoup
 
 class_map = {
@@ -70,7 +71,7 @@ def convert_md_to_html(md_path: str,
             last_li = ul.find_all('li')[-1]
             last_li.append(next_el.extract())
     
-    # # 4.5 Change class names
+    # 5 Change class names
     for tag in soup.find_all(class_=True):
         new_classes = []
         for cls in tag.get("class", []):
@@ -79,12 +80,19 @@ def convert_md_to_html(md_path: str,
             new_classes.extend(replacement.split())  # handle multi-word classes
         tag["class"] = new_classes
 
-    processed_body = str(soup)
+    # 6. Render LaTex
+    wrapper ='<span class="mathjax">{}</span>'
+    pattern = re.compile(r"\$\$(.+?)\$\$", re.DOTALL)
+    def replacer(match):
+        latex_code = match.group(1).strip()
+        return wrapper.format(latex_code)
 
-    # 5. Determine page title
+    processed_body = pattern.sub(replacer, str(soup))
+
+    # 7. Determine page title
     page_title = title or os.path.splitext(os.path.basename(md_path))[0]
 
-    # 6. Build complete HTML document
+    # 8. Build complete HTML document
     link_tag = f'<link rel="stylesheet" href="{css_href}">\n' if css_href else ''
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
