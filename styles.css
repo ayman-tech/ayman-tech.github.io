@@ -111,6 +111,10 @@
   .markdown-body .text-gray-light { color: var(--text-muted) !important; }
 
   /* Tweaks by Ayman - necessary to be !important to override*/
+  strong{
+    color:rgba(255, 255, 255, 0.800)
+  }
+
   .token.operator,
   .token.entity,
   .token.url,

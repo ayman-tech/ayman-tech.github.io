@@ -13,6 +13,10 @@ class_map = {
     "kn": "token keyword"
 }
 
+# Rules :
+#   1. For latex use \subseteq and \infty instead of \sube and \infin
+#   2. Only single line latex is supported i.e. enclosed in $<latex_code>$
+
 def convert_md_to_html(md_path: str,
                        html_path: str,
                        title: str = None,
@@ -101,6 +105,21 @@ def convert_md_to_html(md_path: str,
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{page_title}</title>
   {link_tag}
+  <!-- MathJax configuration and script -->
+  <script>
+    MathJax = {{
+      tex: {{
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        tags: 'ams'
+      }},
+      svg: {{
+        fontCache: 'global'
+      }}
+    }};
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <article class="markdown-body">

@@ -6,10 +6,27 @@
   <title>TF serving</title>
   <link rel="stylesheet" href="https://ayman-tech.github.io/styles.css">
 
+  <!-- MathJax configuration and script -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\(', '\)']],
+        displayMath: [['$$', '$$'], ['\[', '\]']],
+        processEscapes: true,
+        tags: 'ams'
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <article class="markdown-body">
 <h1 class="atx" id="tf-serving">TF serving</h1>
+<p><a href="https://ayman-tech.github.io/">Back to Home</a> </p>
+<p><em>Last updated : Long time ago</em> </p>
 <ul>
 <li>
 <p>tf serving makes model version management &amp; model serving very easy  </p>

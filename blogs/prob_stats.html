@@ -6,10 +6,26 @@
   <title>Probablity & Statistics</title>
   <link rel="stylesheet" href="https://ayman-tech.github.io/styles.css">
 
+  <!-- MathJax configuration and script -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\(', '\)']],
+        displayMath: [['$$', '$$'], ['\[', '\]']],
+        processEscapes: true,
+        tags: 'ams'
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <article class="markdown-body">
 <h1 class="atx" id="probablity-statistics">Probablity &amp; Statistics</h1>
+<p><a href="https://ayman-tech.github.io/">Back to Home</a> </p>
 <p><em>Last updated: 22 Sept 2025</em> </p>
 <h2 class="atx" id="basics">Basics</h2>
 <ul>
@@ -24,17 +40,15 @@
 </li>
 </ul>
 <h3 class="atx" id="set-theory">Set Theory</h3>
-<p>$$<br/>
-1.\ A \subseteq B  =&gt;  A\ subset\ of\ B \<br/>
-2.\ A = B =&gt; A\subseteq B \ and \ B\subseteq A\<br/>
-3.\ Empty\ set (\phi) =&gt; Set\ with\ no\ element =&gt; \phi\ is\ contained in every set<br/>
-$$  </p>
+<ol>
+<li>$\ A \subseteq B  =&gt;  A\ subset\ of\ B $  </li>
+<li>$\ A = B =&gt; A\subseteq B \ and \ B\subseteq A$  </li>
+<li>$\ Empty\ set (\phi) =&gt; Set\ with\ no\ element =&gt; \phi\ is\ contained in every set$  </li>
+</ol>
 <h3 class="atx" id="operations-with-sets">Operations with sets</h3>
-<p>$$<br/>
-A\cup B = { x: x \in A\ or\  x \in B } \<br/>
-A\cap B = { x: x \in A\ and \ x \in B } \<br/>
-A^c = { x : x\notin A }<br/>
-$$  </p>
+<p>$A\cup B = { x: x \in A\ or\  x \in B }$<br/>
+$A\cap B = { x: x \in A\ and \ x \in B }$<br/>
+$A^c = { x : x\notin A }$  </p>
 <p>Suppose we have an $\Gamma$ be indexing set and we have {$A_\alpha ,\ \alpha \in \Gamma$} be collection of sets indexed by $\Gamma$  </p>
 <p>then , $\bigcup\limits_{\alpha\in\Gamma} A_\alpha = { x : x \in A_\alpha\ for\ some\ \alpha \in \Gamma}$  </p>
 <p>and $\bigcap\limits_{\alpha\in\Gamma} A_\alpha = { x : x \in A_\alpha\ for\ every\ \alpha \in \Gamma}$  </p>
@@ -70,7 +84,7 @@ $$  </p>
 <p>if $A \in \mathcal{B},\ then\ A^c \in \mathcal{B}$  </p>
 </li>
 <li>
-<p>if $A_1, A_2, A_3,... \in \mathcal{B}$, then $\bigcup\limits_{i=1}\limits^{\infin} A_i \in \mathcal{B}$, (closed under countable unions).  </p>
+<p>if $A_1, A_2, A_3,... \in \mathcal{B}$, then $\bigcup\limits_{i=1}\limits^{\infty} A_i \in \mathcal{B}$, (closed under countable unions).  </p>
 </li>
 <li>
 <p>${\phi, S}$ is trivial sigma algebra associated with S.  </p>
@@ -88,7 +102,7 @@ $$  </p>
 <p>P(S) = 1  </p>
 </li>
 <li>
-<p>if $A_1, A_2, A_3,... \in \mathcal{B}$, are pairwise disjoint (countable) then $P(\bigcup\limits_{i=1}\limits^{\infin}) = \sum\limits_{i=1}\limits^{\infin}P(A_i) $)  </p>
+<p>if $A_1, A_2, A_3,... \in \mathcal{B}$, are pairwise disjoint (countable) then $P(\bigcup\limits_{i=1}\limits^{\infty}) = \sum\limits_{i=1}\limits^{\infty}P(A_i) $)  </p>
 </li>
 <li>
 <p>Properties of Probablity fn :  </p>
@@ -112,7 +126,7 @@ $$  </p>
 <p>$P(A \cup B) = P(A) + P(B) - P(A\cup B)$  </p>
 </li>
 <li>
-<p>if $A \sube B$ =&gt; P(A) $\le$ P(B)  </p>
+<p>if $A \subseteq B$ =&gt; P(A) $\le$ P(B)  </p>
 </li>
 </ul>
 <h2 class="atx" id="conditional-probablity-independence">Conditional Probablity &amp; Independence</h2>
@@ -130,7 +144,7 @@ $$  </p>
 <p><strong>Multiplication Rule</strong> : $P(A\cap B) = P(A|B)<em>P(B) = P(B|A)</em>P(A)$  </p>
 </li>
 <li>
-<p><strong>Independent Events</strong> : $A, B \sube S\ are\ independent\ iff$  </p>
+<p><strong>Independent Events</strong> : $A, B \subseteq S\ are\ independent\ iff$  </p>
 </li>
 <li>
 <p>$P(A|B) = P(A) \quad &lt;=&gt; \quad P(B|A) = P(B)$  </p>
