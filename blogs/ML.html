@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TF serving</title>
+  <link rel="stylesheet" href="C:/Users/Aym_s/projects/github/profile/styles.css">
+
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="atx" id="tf-serving">TF serving</h1>
+<ul>
+<li>
+<p>tf serving makes model version management &amp; model serving very easy  </p>
+</li>
+<li>
+<p>Also it can follow batch inference, runs req in batches, set a timeout parameter so it would process all req in that timeout in a single batch.  </p>
+</li>
+<li>
+<p>Allows better resource utilization.  </p>
+</li>
+</ul>
+<h3 class="atx" id="installing">Installing</h3>
+<p><code>docker pull tensorflow/serving</code> </p>
+<h3 class="atx" id="setting-up">Setting up</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">docker</span> <span class="n">run</span> <span class="n">-t</span> <span class="token punctuation">-</span><span class="n">-rm</span> <span class="n">-v</span> <span class="token punctuation">&lt;</span><span class="n">directory</span><span class="token punctuation">&gt;:&lt;</span><span class="n">docker_img_name</span><span class="token punctuation">(</span><span class="n">can</span> <span class="n">be</span> <span class="n">any</span><span class="token punctuation">)&gt;</span> <span class="n">-p</span> <span class="token punctuation">&lt;</span><span class="n">port</span><span class="token punctuation">(</span><span class="n">eg</span> <span class="n">8605</span><span class="token punctuation">)&gt;:&lt;</span><span class="n">port_to_exposed_as</span><span class="token punctuation">(</span><span class="n">usually</span> <span class="n">same</span><span class="token punctuation">)&gt;</span> <span class="n">tensorflow</span><span class="token punctuation">/</span><span class="n">serving</span>  
+<span class="n">tensorflow_model_server</span> <span class="token punctuation">-</span><span class="n">-rest_api_port</span><span class="token punctuation">=&lt;</span><span class="n">port</span><span class="token punctuation">(</span><span class="n">eg</span> <span class="n">8605</span><span class="token punctuation">)&gt;</span> <span class="token punctuation">-</span><span class="n">-model_config_file</span><span class="token punctuation">=&lt;</span><span class="n">path_of_models</span><span class="token punctuation">.</span><span class="n">configs</span><span class="token punctuation">.</span><span class="n">a</span><span class="token punctuation">&gt;</span>  
+</code></pre></div>
+<p>Use Postman to test or go to localhost:8605/v1/models/\<model_name> (its always v1)  </model_name></p>
+<p>Learn about models.config.a  </p>
+<p>NOTE -: x = data[data['Species'] == species[i]] =&gt; this selects only those rows where species is that val  </p>
+<h3 class="atx" id="info-of-pandas-df">Info of Pandas df</h3>
+<p>df.duplicated().sum() : no of dup rows  </p>
+<p>df.isnull().sum() :  count of missing/null vals  </p>
+<p>df.describe(include="all").round(2) : gives count, unique, top, freq, mean, std, min, max of dataset  </p>
+</article>
+</body>
+</html>

@@ -32,6 +32,29 @@ def update_html_titles(root_dir=''):
                         print(f"No <h1> found in: {full_path}")
                         if soup.title:
                             soup.title.string.replace_with("Page")
+                            
+                    # 1) Remove all <script> tags and their contents
+                    for script in soup.find_all('script'):
+                        script.decompose()
+
+                    # 2) Ensure there’s a <head> to work with
+                    head = soup.head
+                    if head is None:
+                        head = soup.new_tag('head')
+                        # Insert head before the first element under <html>, or at top
+                        if soup.html:
+                            soup.html.insert(0, head)
+                        else:
+                            soup.insert(0, head)
+
+                    # 3) Add the stylesheet link
+                    link_tag = soup.new_tag(
+                        'link',
+                        rel='stylesheet',
+                        href='../styles.css'
+                    )
+                    head.append(link_tag)
+
                 except Exception as e:
                     print(f"Error processing {full_path}: {e}")
 
