@@ -85,18 +85,19 @@ def convert_md_to_html(md_path: str,
         tag["class"] = new_classes
 
     # 6. Render LaTex
-    wrapper ='<span class="mathjax">{}</span>'
-    pattern = re.compile(r"\$\$(.+?)\$\$", re.DOTALL)
-    def replacer(match):
-        latex_code = match.group(1).strip()
-        return wrapper.format(latex_code)
+    # wrapper ='<span class="mathjax">{}</span>'
+    # pattern = re.compile(r"\$\$(.+?)\$\$", re.DOTALL)
+    # def replacer(match):
+    #     latex_code = match.group(1).strip()
+    #     return wrapper.format(latex_code)
 
-    processed_body = pattern.sub(replacer, str(soup))
+    # processed_body = pattern.sub(replacer, str(soup))
+    processed_body = str(soup)
 
-    # 7. Determine page title
+    # 6. Determine page title
     page_title = title or os.path.splitext(os.path.basename(md_path))[0]
 
-    # 8. Build complete HTML document
+    # 7. Build complete HTML document
     link_tag = f'<link rel="stylesheet" href="{css_href}">\n' if css_href else ''
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -109,8 +110,10 @@ def convert_md_to_html(md_path: str,
   <script>
     MathJax = {{
       tex: {{
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        // inlineMath: [['$', '$'], ['\\(', '\\)']]
+        // displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
         processEscapes: true,
         tags: 'ams'
       }},
@@ -129,7 +132,7 @@ def convert_md_to_html(md_path: str,
 </html>
 """
 
-    # 6. Write out the HTML file
+    # 8. Write out the HTML file
     with open(html_path, 'w', encoding='utf-8') as html_file:
         html_file.write(full_html)
 
