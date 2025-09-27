@@ -36,7 +36,7 @@
 </li>
 <li>
 <p>ML categories are  </p>
-</li>
+<ol>
 <li>
 <p>Classification  </p>
 </li>
@@ -46,9 +46,11 @@
 <li>
 <p>Novelty detection  </p>
 </li>
+</ol>
+</li>
 <li>
 <p>ML Algorithms:  </p>
-</li>
+<ol>
 <li>
 <p>Nearest Neighbour  </p>
 </li>
@@ -67,12 +69,14 @@
 <li>
 <p>Neural Networks  </p>
 </li>
+</ol>
+</li>
 <li>
 <p>Deep learning is specialised area within ML concerned with neural networks.  </p>
 </li>
 <li>
 <p>Types of learning in ML Systems :  </p>
-</li>
+<ul>
 <li>
 <p><strong>Supervised</strong> : <br/>
     Given Training Data + labels<br/>
@@ -108,6 +112,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <h2 class="atx" id="bayesian-decision-theory">Bayesian Decision Theory</h2>
 <p><strong>Bayes Theory</strong> : Converts class prior P(wi) and class conditional densities p(x|wi) to posterior probablity for a class P(wi|x).  </p>
 <p>$P(w_i|x) = \frac{p(x|w_i)*P(w_i)}{p(x)} \qquad$<br/>
@@ -125,16 +131,16 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 <ul>
 <li>
 <p>if data is <em>Discrete Random variable</em>, eg rolling fair die - 1,2,3,4,5,6<br/>
-  use <em>Probablity Mass Function (PMF)</em>.  </p>
+    use <em>Probablity Mass Function (PMF)</em>.  </p>
 </li>
 <li>
 <p>if its <em>Continuous Random Variable</em> i.e. any value b/w range/interval<br/>
-  eg : exact weight of person, x in [0,180]<br/>
-  use <em>Probablity Density Function (PDF)</em> </p>
+    eg : exact weight of person, x in [0,180]<br/>
+    use <em>Probablity Density Function (PDF)</em> </p>
 </li>
 <li>
 <p><em>Class-Conditional Probablity</em> $p(x|w)$ : The probablity of observing a certaain input feature $x$, given it belongs to specific class $w$ <br/>
-  Bayes formula convert class prior $P(w_i)$ and class-conditional probablity $p(x|w_i)$ to posterior probablity for class $P(w_i|x)$.  </p>
+    Bayes formula convert class prior $P(w_i)$ and class-conditional probablity $p(x|w_i)$ to posterior probablity for class $P(w_i|x)$.  </p>
 </li>
 </ul>
 <h3 class="atx" id="bayesial-classifier-decision">Bayesial Classifier Decision</h3>
@@ -145,12 +151,14 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 </li>
 <li>
 <p>Example :   </p>
-</li>
+<ul>
 <li>
 <p><em>General Discriminant</em> fn : $g_i(x) = -R(\alpha_i|x)$  </p>
 </li>
 <li>
 <p><em>Zero-One loss</em> discriminant fn : $g_i(x) = P(w_i|x)$  </p>
+</li>
+</ul>
 </li>
 <li>
 <p>Decision : Decide class 'i' if, $g_i(x) \ge g_j(x) \quad \forall i \ne j$  </p>
@@ -193,15 +201,13 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 </li>
 <li>
 <p>Let dataset D contain n samples$p(D|\theta) = \prod\limits_{k=1}\limits^n p(x_k|\theta)$ <br/>
-  having natural log for likelihood, called Log-Likelihood<br/>
-  $\hspace{10em} \ln(\theta) = \ln p(D|\theta) = \sum\limits_{k=1}\limits^n \ln p(x_k|\theta)$<br/>
-  $\hspace{10em} \frac{d}{d\theta} \ln (\theta) = \sum\limits_{k=1}\limits^n \frac{d}{d\theta} \ln p(x_k|\theta)$<br/>
-  set $\frac{d}{d\theta} \ln(\theta) = 0 $ and solve for params  </p>
+    having natural log for likelihood, called Log-Likelihood<br/>
+    $\hspace{10em} \ln(\theta) = \ln p(D|\theta) = \sum\limits_{k=1}\limits^n \ln p(x_k|\theta)$<br/>
+    $\hspace{10em} \frac{d}{d\theta} \ln (\theta) = \sum\limits_{k=1}\limits^n \frac{d}{d\theta} \ln p(x_k|\theta)$<br/>
+    set $\frac{d}{d\theta} \ln(\theta) = 0 $ and solve for params  </p>
 </li>
 <li>
 <p>Below is comparision of MLE vs Bayesian Estimate  </p>
-</li>
-</ul>
 <table>
 <thead>
 <tr>
@@ -220,15 +226,17 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 </tr>
 </tbody>
 </table>
-<ul>
+</li>
 <li>
 <p>As data grows, In Bayesian setting:  </p>
-</li>
+<ul>
 <li>
 <p>Prior influence decreases  </p>
 </li>
 <li>
 <p>Posterior influence increases around MLE solution  </p>
+</li>
+</ul>
 </li>
 <li>
 <p>So Bayesian estimate and MLE converge to same sample in large dataset.  </p>
@@ -247,12 +255,14 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 </li>
 <li>
 <p>Usecases :  </p>
-</li>
+<ul>
 <li>
 <p>More Data (no strong Priors) -&gt; MLE  </p>
 </li>
 <li>
 <p>Less Data (less strong priors) -&gt; Bayesian or MAP  </p>
+</li>
+</ul>
 </li>
 </ul>
 <h1 class="atx" id="decision-trees">Decision Trees</h1>
@@ -266,7 +276,7 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 </li>
 <li>
 <p>UseCase :  </p>
-</li>
+<ul>
 <li>
 <p>Model needs to be easy to interpret.  </p>
 </li>
@@ -276,9 +286,11 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 <li>
 <p>Naturally incorporate feature interactions.  </p>
 </li>
+</ul>
+</li>
 <li>
 <p>Overfitting:  </p>
-</li>
+<ul>
 <li>
 <p>Caused when decision tree is <strong>Too Deep or Too Often Splits</strong> </p>
 </li>
@@ -288,12 +300,14 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 <li>
 <p>Leads to poor performance on unseen data.  </p>
 </li>
+</ul>
+</li>
 <li>
 <p>Its very expensive with more nodes, Always try to make small tree.  </p>
 </li>
 <li>
 <p>Metrics for Splitting Criterion:  </p>
-</li>
+<ul>
 <li>
 <p>Info Gain : Choose Split that reduces uncertainty.  </p>
 </li>
@@ -302,6 +316,8 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 </li>
 <li>
 <p>Gini Impurity : Fast calculation or less concern for interpretablity (popular for Real-time system or large scale classification)  </p>
+</li>
+</ul>
 </li>
 </ul>
 <h3 class="atx" id="info-gain">Info Gain</h3>
@@ -331,15 +347,15 @@ $$  </p>
 <ol>
 <li>
 <p>Calc entropy for entire Dataset <br/>
-   $H(S) = -\sum\limits_{i=1}\limits^n P(S=y_i) \log_2P(S=y_i)$  </p>
+    $H(S) = -\sum\limits_{i=1}\limits^n P(S=y_i) \log_2P(S=y_i)$  </p>
 </li>
 <li>
 <p>Calc expected entropy after split for feature $X_i$<br/>
-   $\sum\limits_k \frac{|S_k|}{|S|}\ H(S_k)$  </p>
+    $\sum\limits_k \frac{|S_k|}{|S|}\ H(S_k)$  </p>
 </li>
 <li>
 <p>Calc Info Gain for feature $X_i$:<br/>
-   $I(S,X_i) = H(S) - \sum\limits_k \frac{|S_k|}{|S|}\ H(S_k)$  </p>
+    $I(S,X_i) = H(S) - \sum\limits_k \frac{|S_k|}{|S|}\ H(S_k)$  </p>
 </li>
 <li>
 <p>Split in descending order of Info Gain  </p>

@@ -34,9 +34,16 @@ def convert_md_to_html(md_path: str,
     with open(md_path, 'r', encoding='utf-8') as md_file:
         lines = md_file.readlines()
 
-    # Add two spaces to end of each non-empty line that doesn't already have them
+    # Make indend 4 spaces instead of 2 & Add two spaces to non-empty line that doesn't have them
     processed_lines = []
     for line in lines:
+        leading_spaces = re.match(r'^( +)', line)
+        if leading_spaces:
+            space_count = len(leading_spaces.group(1))
+            # Round down to nearest multiple of 2, then double it
+            new_indent = ' ' * ((space_count // 2) * 4)
+            line = new_indent + line.lstrip()
+        
         stripped = line.rstrip('\n')
         if stripped and not stripped.endswith('  ') and '<br>' not in stripped:
             stripped += '  '
