@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ML Principles</title>
+  <link rel="stylesheet" href="https://ayman-tech.github.io/styles.css">
+
+  <!-- MathJax configuration and script -->
+  <script>
+    MathJax = {
+      tex: {
+        // inlineMath: [['$', '$'], ['\(', '\)']]
+        // displayMath: [['$$', '$$'], ['\[', '\]']],
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        tags: 'ams'
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="atx" id="ml-principles">ML Principles</h1>
+<p><a href="https://ayman-tech.github.io/">Back to Home</a> </p>
+<p><em>Last updated : 26 Sept 2025</em> </p>
+<h2 class="atx" id="ml-basics">ML Basics</h2>
+<ul>
+<li>
+<p>ML is study of of algo that Improve on task T, wrt performance metric P, based on experience E  </p>
+</li>
+<li>
+<p>ML categories are  </p>
+</li>
+<li>
+<p>Classification  </p>
+</li>
+<li>
+<p>Generation  </p>
+</li>
+<li>
+<p>Novelty detection  </p>
+</li>
+<li>
+<p>ML Algorithms:  </p>
+</li>
+<li>
+<p>Nearest Neighbour  </p>
+</li>
+<li>
+<p>Naive Bayes  </p>
+</li>
+<li>
+<p>Decision Trees  </p>
+</li>
+<li>
+<p>Linear Regression  </p>
+</li>
+<li>
+<p>Support Vector Machines (SVM)  </p>
+</li>
+<li>
+<p>Neural Networks  </p>
+</li>
+<li>
+<p>Deep learning is specialised area within ML concerned with neural networks.  </p>
+</li>
+<li>
+<p>Types of learning in ML Systems :  </p>
+</li>
+<li>
+<p><strong>Supervised</strong> : <br/>
+    Given Training Data + labels<br/>
+<u>Used when abundant labeled data</u> </p>
+</li>
+<li>
+<p><strong>Unsupervised :</strong><br/>
+    Given training data without labels<br/>
+    goal is to discover hidden structures or patterns<br/>
+<u>Used when we want to explore structure in raw data</u><br/>
+    eg : clustering, dimensionality reduction (t-SNE or PCA), ICA  </p>
+</li>
+<li>
+<p><strong>Semi-supervised :</strong><br/>
+    combines supervised and unsupervised<br/>
+    given training data + few labels<br/>
+<u>Used in common real world scenario where labelling is expensive or time consuming.</u> </p>
+</li>
+<li>
+<p><strong>Reinforcement :</strong><br/>
+    Agent interacts with environment<br/>
+    Given seq of states &amp; actions with rewards (delayed) &amp; penalties<br/>
+    output a policy or mapping from states action that tells what to do in given state (maximize cumulative reward).<br/>
+<u>Used when learning is based on interaction and delayed rewards.</u><br/>
+    eg. playing super mario game:  </p>
+<ul>
+<li>
+<p>Rewards - collecting coins, defeating enemies, completing levels  </p>
+</li>
+<li>
+<p>Penalties - falling in pit, running out of time  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="atx" id="bayesian-decision-theory">Bayesian Decision Theory</h2>
+<p><strong>Bayes Theory</strong> : Converts class prior P(wi) and class conditional densities p(x|wi) to posterior probablity for a class P(wi|x).  </p>
+<p>$P(w_i|x) = \frac{p(x|w_i)*P(w_i)}{p(x)} \qquad$<br/>
+posterior  = (likelihood x prior) / evidence  </p>
+<p>Posterior probablity $P$ : updated belief after observing data  </p>
+<p>Prior probablity $p$ : belief before observing data  </p>
+<p><strong>Bayes Decision Theory</strong> : to minimize errors, chose the action/class that minimizes expected loss (i.e. Select lease risky class).  </p>
+<p><strong>Decision function</strong> $\alpha(x)$ : Rule for making decision. Feature vector $x \rightarrow$ action/class $\alpha(x)$  </p>
+<p><strong>Risk Function</strong> R : Expected loss of (after) making each decision<br/>
+$\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
+<p>where $R(\alpha_i|x) = \sum\limits_{j=1}\limits^{n} \lambda_{ij}\ P(w_j|x) \qquad$ and $\lambda$ is loss function   </p>
+<p>$\lambda(a_i|w_j) = \lambda_{ij}$ is cost of selecting class i when sample belongs to class j  </p>
+<p><strong>Goal of Bayesian decision theory:</strong> choose class i if : $\quad R(\alpha_j|x) \le R(\alpha_j|x) \qquad \forall j\ne i$  </p>
+<p><em>Note:</em> </p>
+<ul>
+<li>
+<p>if data is <em>Discrete Random variable</em>, eg rolling fair die - 1,2,3,4,5,6<br/>
+  use <em>Probablity Mass Function (PMF)</em>.  </p>
+</li>
+<li>
+<p>if its <em>Continuous Random Variable</em> i.e. any value b/w range/interval<br/>
+  eg : exact weight of person, x in [0,180]<br/>
+  use <em>Probablity Density Function (PDF)</em> </p>
+</li>
+<li>
+<p><em>Class-Conditional Probablity</em> $p(x|w)$ : The probablity of observing a certaain input feature $x$, given it belongs to specific class $w$ <br/>
+  Bayes formula convert class prior $P(w_i)$ and class-conditional probablity $p(x|w_i)$ to posterior probablity for class $P(w_i|x)$.  </p>
+</li>
+</ul>
+<h3 class="atx" id="bayesial-classifier-decision">Bayesial Classifier Decision</h3>
+<p><strong>Discriminant Fn</strong> $g_i(x)$:  </p>
+<ul>
+<li>
+<p>Helps classifier decide which class to assign to given input.  </p>
+</li>
+<li>
+<p>Example :   </p>
+</li>
+<li>
+<p><em>General Discriminant</em> fn : $g_i(x) = -R(\alpha_i|x)$  </p>
+</li>
+<li>
+<p><em>Zero-One loss</em> discriminant fn : $g_i(x) = P(w_i|x)$  </p>
+</li>
+<li>
+<p>Decision : Decide class 'i' if, $g_i(x) \ge g_j(x) \quad \forall i \ne j$  </p>
+<p><strong>Equivalent Discriminants for Zero-One loss</strong> :   </p></li>
+</ul>
+
+<ul>
+<li>
+<p>all classification errors are treated equally  </p>
+</li>
+<li>
+<p>$\lambda(\alpha_i | w_j) = \begin{cases} 0 &amp; \text{if } i=j \ 1 &amp; \text{if } i\ne j \end{cases}$  </p>
+</li>
+<li>
+<p>Decision : choose class that maximizes posterior probablity  </p>
+<p><strong>Decision Region for Binary classifier</strong> : The boundary b/w regions where discriminant fn is equal for the 2 classes  </p></li>
+</ul>
+
+<h4 class="atx" id="gaussian-normal-distribution">Gaussian (Normal) Distribution</h4>
+<p>Plays major role in many bayesian classifier. Types are :  </p>
+<ol>
+<li>
+<p><strong>Univariate Normal Distribution</strong> models a single continuous variable (eg. height, temp)  </p>
+</li>
+<li>
+<p><strong>Multivariate Normal Distribution</strong> models multiple features together.  </p>
+</li>
+</ol>
+<p>Key variables : mean $\mu$, variance $\sigma^2$, covariance matrix $\Sigma$.   </p>
+<h2 class="atx" id="maximum-likelihood-estimation-mle">Maximum Likelihood Estimation (MLE)</h2>
+<ul>
+<li>
+<p>MLW and MAP help infer most plausible params for models based on available evidence.  </p>
+</li>
+<li>
+<p>Goal : Choose model parameters that make observed data as likely as possible.  </p>
+</li>
+<li>
+<p>Likelihood fn  $p(D|\theta)$ measures how likely observed data is for diff param vals.  </p>
+</li>
+<li>
+<p>Let dataset D contain n samples$p(D|\theta) = \prod\limits_{k=1}\limits^n p(x_k|\theta)$ <br/>
+  having natural log for likelihood, called Log-Likelihood<br/>
+  $\hspace{10em} \ln(\theta) = \ln p(D|\theta) = \sum\limits_{k=1}\limits^n \ln p(x_k|\theta)$<br/>
+  $\hspace{10em} \frac{d}{d\theta} \ln (\theta) = \sum\limits_{k=1}\limits^n \frac{d}{d\theta} \ln p(x_k|\theta)$<br/>
+  set $\frac{d}{d\theta} \ln(\theta) = 0 $ and solve for params  </p>
+</li>
+<li>
+<p>Below is comparision of MLE vs Bayesian Estimate  </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Max Likelihood Est (MLE)</th>
+<th>Bayesian Estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Views the params as fixed but unknown vals</td>
+<td>Views params as random vars with some known prior distributions</td>
+</tr>
+<tr>
+<td>Best estimate is one that maximizes likelihood of data</td>
+<td>Update beliefs after observing data.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>As data grows, In Bayesian setting:  </p>
+</li>
+<li>
+<p>Prior influence decreases  </p>
+</li>
+<li>
+<p>Posterior influence increases around MLE solution  </p>
+</li>
+<li>
+<p>So Bayesian estimate and MLE converge to same sample in large dataset.  </p>
+</li>
+</ul>
+<h2 class="atx" id="maximum-posterior-estimation-map">Maximum Posterior Estimation (MAP)</h2>
+<ul>
+<li>
+<p>Goal : Maximizing posterior Probablity of prams in given observed data.  </p>
+</li>
+<li>
+<p>Combines MLE and Bayesian estimate.  </p>
+</li>
+<li>
+<p>If we assume uniform prior influence, MAP is same as MLE.  </p>
+</li>
+<li>
+<p>Usecases :  </p>
+</li>
+<li>
+<p>More Data (no strong Priors) -&gt; MLE  </p>
+</li>
+<li>
+<p>Less Data (less strong priors) -&gt; Bayesian or MAP  </p>
+</li>
+</ul>
+<h1 class="atx" id="decision-trees">Decision Trees</h1>
+<p><img alt="Decision Tree Image" src="../../imgs/decision_tree.png"/> </p>
+<ul>
+<li>
+<p>Each internal node asks question about feature, each branch corresponds to possible answer &amp; each leaf node is prediction.  </p>
+</li>
+<li>
+<p>Decision tree can represent any boolean functions  </p>
+</li>
+<li>
+<p>UseCase :  </p>
+</li>
+<li>
+<p>Model needs to be easy to interpret.  </p>
+</li>
+<li>
+<p>Can handle both categorical &amp; numerical data  </p>
+</li>
+<li>
+<p>Naturally incorporate feature interactions.  </p>
+</li>
+<li>
+<p>Overfitting:  </p>
+</li>
+<li>
+<p>Caused when decision tree is <strong>Too Deep or Too Often Splits</strong> </p>
+</li>
+<li>
+<p>Model learns more noise than actual data.  </p>
+</li>
+<li>
+<p>Leads to poor performance on unseen data.  </p>
+</li>
+<li>
+<p>Its very expensive with more nodes, Always try to make small tree.  </p>
+</li>
+<li>
+<p>Metrics for Splitting Criterion:  </p>
+</li>
+<li>
+<p>Info Gain : Choose Split that reduces uncertainty.  </p>
+</li>
+<li>
+<p>Accuracy BAsed : Choose split that gives highest accuracy for immediate classification  </p>
+</li>
+<li>
+<p>Gini Impurity : Fast calculation or less concern for interpretablity (popular for Real-time system or large scale classification)  </p>
+</li>
+</ul>
+<h3 class="atx" id="info-gain">Info Gain</h3>
+<p>Measures how much feature tells about class label:  </p>
+<p>$$<br/>
+I(X,Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)<br/>
+$$  </p>
+<p>where,  </p>
+<p>$$<br/>
+Entropy\ for\ x:\qquad H(X) = -\sum\limits_{i=1}\limits^n P(x=i) \log_2P(X=i) \<br/>
+H(X|Y=v) = -\sum\limits_{i=1}\limits^n P(x=i|Y=v) \log_2P(X=i|Y=v) \<br/>
+H(X|Y) = \sum\limits_{v\in Y} P(Y=v)* H(X|Y=v) \<br/>
+$$  </p>
+<p><em>Note</em> : To prevent Overfitting -  </p>
+<ol>
+<li>
+<p>Limit tree depth  </p>
+</li>
+<li>
+<p>set min no of samples req for splitting node.  </p>
+</li>
+<li>
+<p>use cross validation.  </p>
+</li>
+</ol>
+<h4 class="atx" id="steps-to-create-decision-tree">Steps to create Decision Tree :</h4>
+<ol>
+<li>
+<p>Calc entropy for entire Dataset <br/>
+   $H(S) = -\sum\limits_{i=1}\limits^n P(S=y_i) \log_2P(S=y_i)$  </p>
+</li>
+<li>
+<p>Calc expected entropy after split for feature $X_i$<br/>
+   $\sum\limits_k \frac{|S_k|}{|S|}\ H(S_k)$  </p>
+</li>
+<li>
+<p>Calc Info Gain for feature $X_i$:<br/>
+   $I(S,X_i) = H(S) - \sum\limits_k \frac{|S_k|}{|S|}\ H(S_k)$  </p>
+</li>
+<li>
+<p>Split in descending order of Info Gain  </p>
+</li>
+</ol>
+</article>
+</body>
+</html>
