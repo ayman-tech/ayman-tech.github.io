@@ -104,7 +104,10 @@ def convert_md_to_html(md_path: str,
 
     # 6. Determine page title
     page_title = title or os.path.splitext(os.path.basename(md_path))[0]
-
+    if(md_path[-8:]=="index.md"):
+        extra_header = '<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>'
+    else:
+        extra_header=''
     # 7. Build complete HTML document
     link_tag = f'<link rel="stylesheet" href="{css_href}">\n' if css_href else ''
     full_html = f"""<!DOCTYPE html>
@@ -131,6 +134,7 @@ def convert_md_to_html(md_path: str,
     }};
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  {extra_header}
 </head>
 <body>
 <article class="markdown-body">
