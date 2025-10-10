@@ -28,7 +28,7 @@
 <article class="markdown-body">
 <h1 class="atx" id="ml-principles">ML Principles</h1>
 <p><a href="https://ayman-tech.github.io/">Back to Home</a> </p>
-<p><em>Last updated : 26 Sept 2025</em> </p>
+<p><em>Last updated : 10 Oct 2025</em> </p>
 <h2 class="atx" id="ml-basics">ML Basics</h2>
 <ul>
 <li>
@@ -115,18 +115,31 @@
 </li>
 </ul>
 <h2 class="atx" id="bayesian-decision-theory">Bayesian Decision Theory</h2>
-<p><strong>Bayes Theory</strong> : Converts class prior P(wi) and class conditional densities p(x|wi) to posterior probablity for a class P(wi|x).  </p>
-<p>$P(w_i|x) = \frac{p(x|w_i)*P(w_i)}{p(x)} \qquad$<br/>
-posterior  = (likelihood x prior) / evidence  </p>
-<p>Posterior probablity $P$ : updated belief after observing data  </p>
-<p>Prior probablity $p$ : belief before observing data  </p>
+<ul>
+<li>
+<p><strong>Bayes Theory</strong> : Converts class prior P(wi) and class conditional densities p(x|wi) to posterior probablity for a class P(wi|x).<br/>
+    $P(w_i|x) = \frac{p(x|w_i)*P(w_i)}{p(x)} \qquad$<br/>
+    where, <br/>
+    posterior  = (likelihood x prior) / evidence<br/>
+    Posterior probablity $P$ : updated belief after observing data<br/>
+    Prior probablity $p$ : belief before observing data  </p>
+</li>
+<li>
 <p><strong>Bayes Decision Theory</strong> : to minimize errors, chose the action/class that minimizes expected loss (i.e. Select lease risky class).  </p>
+</li>
+<li>
 <p><strong>Decision function</strong> $\alpha(x)$ : Rule for making decision. Feature vector $x \rightarrow$ action/class $\alpha(x)$  </p>
+</li>
+<li>
 <p><strong>Risk Function</strong> R : Expected loss of (after) making each decision<br/>
-$\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
-<p>where $R(\alpha_i|x) = \sum\limits_{j=1}\limits^{n} \lambda_{ij}\ P(w_j|x) \qquad$ and $\lambda$ is loss function   </p>
-<p>$\lambda(a_i|w_j) = \lambda_{ij}$ is cost of selecting class i when sample belongs to class j  </p>
+    $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,<br/>
+    where $R(\alpha_i|x) = \sum\limits_{j=1}\limits^{n} \lambda_{ij}\ P(w_j|x) \qquad$ and $\lambda$ is loss function <br/>
+    $\qquad \lambda(a_i|w_j) = \lambda_{ij}$ is cost of selecting class i when sample belongs to class j  </p>
+</li>
+<li>
 <p><strong>Goal of Bayesian decision theory:</strong> choose class i if : $\quad R(\alpha_j|x) \le R(\alpha_j|x) \qquad \forall j\ne i$  </p>
+</li>
+<li>
 <p><em>Note:</em> </p>
 <ul>
 <li>
@@ -141,6 +154,8 @@ $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,  </p>
 <li>
 <p><em>Class-Conditional Probablity</em> $p(x|w)$ : The probablity of observing a certaain input feature $x$, given it belongs to specific class $w$ <br/>
     Bayes formula convert class prior $P(w_i)$ and class-conditional probablity $p(x|w_i)$ to posterior probablity for class $P(w_i|x)$.  </p>
+</li>
+</ul>
 </li>
 </ul>
 <h3 class="atx" id="bayesial-classifier-decision">Bayesial Classifier Decision</h3>
@@ -359,6 +374,475 @@ $\hspace{10em} H(X|Y) = \sum\limits_{v\in Y} P(Y=v)* H(X|Y=v)$  </p>
 <p>Split in descending order of Info Gain  </p>
 </li>
 </ol>
+<h2 class="atx" id="linear-regression">Linear Regression</h2>
+<ul>
+<li>
+<p>Supervised learning method where given (x1, y1), (x2, y2), .... (xn, yn), learn f(x) to predict y given x.  </p>
+</li>
+<li>
+<p>To fit a linear method, we use Least Squares Method : Minimize Cost (sum of squared errors)  </p>
+</li>
+<li>
+<p>Cost Fn :  $J(\theta) = \frac{1}{2n} \sum\limits_{i=1}\limits^{n}(h_\theta(x^{(i)} - y^{(i)})^2 \qquad$ where hypothesis function    $h_\theta = \sum\limits_{j=0}\limits^d \theta_j x_j$  </p>
+</li>
+<li>
+<p>$J(\theta)$ has convex shape, i.e. one global minimum. Any optimization algo we use, we get best fit.  </p>
+</li>
+<li>
+<p>We can use Search procedure to get parameters:  </p>
+<ul>
+<li>
+<p>Initial guess  </p>
+</li>
+<li>
+<p>iteratively update to reduce cost  </p>
+</li>
+<li>
+<p>continue until convergence to best solution  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="atx" id="gradient-descent-for-linear-regression">Gradient Descent for Linear Regression:</h3>
+<ul>
+<li>
+<p>Practical and efficient optimization algo for minimizing cost fn in linear regression problems.  </p>
+</li>
+<li>
+<p>Steps:  </p>
+<ol>
+<li>
+<p>Initialize $\theta$.  </p>
+</li>
+<li>
+<p>compute  $\frac{\partial}{\partial \theta_j} J(\theta)$  </p>
+</li>
+<li>
+<p>update j = 0, 1, ..... d<br/>
+    $\theta_j \leftarrow \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$<br/>
+    $\alpha$ = learning rate (small), eg 0.05  </p>
+</li>
+</ol>
+</li>
+<li>
+<p>if learning rate is too small =&gt; slow learning; if too large =&gt; could overshoot or diverge.  </p>
+</li>
+<li>
+<p>experiment with different learning rates or use adaptive learning rates such as momentum or Adam.  </p>
+</li>
+</ul>
+<h3 class="atx" id="closed-form-solution">Closed Form Solution:</h3>
+<ul>
+<li>
+<p>Way to calculate optimal param directly without iteration (using matrix multiplication).  </p>
+</li>
+<li>
+<p>Allows to calc optimal rate in one step, much faster and more precise for small dataset  </p>
+</li>
+<li>
+<p>Instead of calculating loss in each iteration, we vectorize it<br/>
+    $J(w) = \frac{1}{2n} ||X_W - y||^2$<br/>
+    $\qquad = \frac{1}{2n} (X_W - y)^T(X_W - y)\ \ \propto\ \ w^TX^TX_W - 2w^TX^Ty + y^Ty$<br/>
+    taking gradient and solving = 0<br/>
+    $(X^TX)w - X^Ty = 0$<br/>
+    $w = (X^TX)^{-1}X^Ty$    <strong>closed form solution</strong> </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Closed Form Solution</th>
+<th>Gradient Descent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Non-iterative</td>
+<td>Requires multiple iteration</td>
+</tr>
+<tr>
+<td>No need of learning rate</td>
+<td>Need to choose right learning rate</td>
+</tr>
+<tr>
+<td>Can be expensive for large n</td>
+<td>Works well for large n</td>
+</tr>
+</tbody>
+</table>
+<p>NOTE =&gt; Standardize the features, ensure that features have similar scales. Transform them to have mean 0 and variance 1:<br/>
+$\qquad x_j^{(i)} \leftarrow \frac{x_j^{(i)}-\mu_j}{s_j}, \qquad j=1,2,.... d$,    where $\mu_j$ = feature mean, $s_j$ = feature standared deviation (or range)  </p>
+<h2 class="atx" id="logistic-regression">Logistic Regression</h2>
+<ul>
+<li>
+<p>Estimates probablities using logistic function. Classification with probablitistic framework.  </p>
+</li>
+<li>
+<p>Its a classification algorithm, despite its name.  </p>
+</li>
+<li>
+<p>it gives probablity that an input belongs to particular class (0 or 1) - learn p(wi | x)  </p>
+</li>
+<li>
+<p>$h_\theta(x)$ should give $p(y=1 | x;\ \theta)$  </p>
+</li>
+<li>
+<p><strong>Log-Odds (Logits)</strong> modeled as linear fn of input features<br/>
+    $\qquad log \frac{p(y=1 |x;\  \theta)}{p(y=0 |x;\ \theta)} = \theta_0+\theta_1 x_1 + .... + \theta_d x_d$  </p>
+</li>
+<li>
+<p>We Use theshold for prediction:  </p>
+<ul>
+<li>
+<p>predict 1 if $h_\theta(x) \ge 0.5$  </p>
+</li>
+<li>
+<p>predict 0 if $h_\theta(x)  \le 0.5$  </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Logistic Sigmoid Function</strong> :   </p>
+<ul>
+<li>
+<p>$g(z) = 1/(1+e^{-z})$  </p>
+</li>
+<li>
+<p>Smooth and differentiable for convenient optimization  </p>
+</li>
+<li>
+<p>use $h_\theta(x) = g(\theta^Tx)$ to produce probablities  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>We cannot use squared loss in logistic regression as it would lead to non convex optimization because $h_\theta(x) = 1/(1+e^{-\theta^Tx})$  </p>
+</li>
+<li>
+<p>Instead we use <strong>log-loss</strong> or <strong>cross-entropy loss</strong> or negative log-likelihood:<br/>
+    $J(\theta) = -\sum\limits_{i=1}\limits^n\  [\ y^{(i)} \log h_\theta (x^{(i)}) + (1-y^{(i)}) \log (1-h_\theta(x^{(i)}))\ ]$  </p>
+</li>
+<li>
+<p>We use gradient descent to update the params to reduce cost. <br/>
+    Alternate way is to use MLE (Max likelihood estimation) .  </p>
+</li>
+<li>
+<p>We use log of probablities because log likelihood fn :  </p>
+<ul>
+<li>
+<p>ensures numerical stability  </p>
+</li>
+<li>
+<p>magnifies penalty for confident wrong answer  </p>
+</li>
+<li>
+<p>turns product to sum for easier calculation.  </p>
+</li>
+<li>
+<p>has desireable convexity properties.  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Regularization is added to prevent overfittin due to noise and irrelavant features, this is needed especially for high dimension data.  </p>
+<ul>
+<li>
+<p>L2 (Ridge): $J_{regularized} (\theta) = J(\theta) + \frac{\lambda}{2}\sum_{j=1}^d \theta^2_j$  </p>
+</li>
+<li>
+<p>L1 (Lasso): $J_{regularized} (\theta) = J(\theta) + \frac{\lambda}{2}|| \theta_{[1:d]}||^2_2$  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Advantages :  </p>
+<ul>
+<li>
+<p>simple and interpretable  </p>
+</li>
+<li>
+<p>good when inputs and log-odds of output have roughly linear relationship  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Challenges:  </p>
+<ul>
+<li>
+<p>Struggles with complex, non-linear patterns  </p>
+</li>
+<li>
+<p>May not acheive hgh accuracy if classes arent linearly seperable.  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="atx" id="gradient-descent-for-logistic-regression">Gradient Descent for Logistic Regression</h3>
+<ul>
+<li>
+<p>minimize negative log-likelihood (cross-entropy loss)<br/>
+    $J(\theta) = -\sum\limits_{i=1}\limits^n\ [\ y^{(i)} \log h_\theta (x^{(i)}) + (1-y^{(i)}) \log (1-h_\theta(x^{(i)}))\ ]$  </p>
+</li>
+<li>
+<p>This cost fn is convex, gradient descent will converge to global min with appropriate learning rate  </p>
+</li>
+<li>
+<p>Steps:  </p>
+<ul>
+<li>
+<p>Initialize $\theta$  </p>
+</li>
+<li>
+<p>Repeate until convergence<br/>
+    $\theta_0 \leftarrow \theta_0 - \alpha \sum\limits_{i=1}\limits^n (h_\theta(x^{(i)}) - y^{(i)})$<br/>
+    $\theta_j \leftarrow \theta_j - \alpha [\  \sum\limits_{i=1}\limits^n (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} + \lambda\theta_j\ ]$<br/>
+    $\theta_j \leftarrow \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Challenges with Gradient Descent:  </p>
+<ul>
+<li>
+<p>Needs right learning rate, too large =&gt; diverge, too small =&gt; slow convergence  </p>
+</li>
+<li>
+<p>Can be overcome with adaptive learning rate such as AdaGrad (Adaptive Gradient)  </p>
+<ul>
+<li>
+<p>adjusts learning rate for each param as per frequency and magnitude of its updates  </p>
+</li>
+<li>
+<p>frequently updated params receive smaller steps, infrequently get larger steps.  </p>
+</li>
+<li>
+<p>especially useful for sparse data such as NLP and click-stream analysis  </p>
+</li>
+<li>
+<p>it is foundation for RMSprop and ADAM.  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Optimization methods:  </p>
+<ul>
+<li>
+<p>Stochastic Gradient Descent (SGD) : update wts using one sample at a time; added noise (less stable) but faster convergence.  </p>
+</li>
+<li>
+<p>Mini-Batch Gradient Descent : data split in batches, update wts using each batch; balances efficiency and stability  </p>
+</li>
+<li>
+<p>Using adaptive learning rate or prior updates : Momentum, RMSprop, Adam  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="atx" id="multi-class-classification">Multi-Class Classification</h3>
+<p>Logistic regression is naturally binary, we have to make them adapt for multi class classification such as :  </p>
+<ol>
+<li>
+<p>One-Versus-Rest (OvR)  </p>
+<ul>
+<li>
+<p>find K-1 classifiers f1, f2, ..... f_(k-1)  </p>
+<ul>
+<li>
+<p>f1 classifies 1 vs {2, 3, .... K}  </p>
+</li>
+<li>
+<p>f2 classifes 2 vs {1, 3, 4, ..... K}, so on and so forth till f_k-1  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pick classifier with highest probablity score.  </p>
+</li>
+<li>
+<p>Advantage : Good if classes are imbalanced  </p>
+</li>
+<li>
+<p>Disadvantage : Can be sensitive to dominant classes.  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>One-Versus-One  </p>
+<ul>
+<li>
+<p>find K(K-1)/2 classifiers f(1,2), f(1,3), ...., f(K-1, K)  </p>
+<ul>
+<li>
+<p>f(1,2) classifies 1 vs 2  </p>
+</li>
+<li>
+<p>f(1,3) classifies 1 vs 3, so on and so forth  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Each class is assigned binary code, chose class whose code is close to predicted bits  </p>
+</li>
+<li>
+<p>Advantage : Robust to errors and allows flexibility (powerfull for ensemble methods)  </p>
+</li>
+<li>
+<p>Disadvantage : Computationally expensive  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Multinomial Logistic Regression (<strong>Softmax</strong>):  </p>
+<ul>
+<li>
+<p>For C classes {1, 2, ... C}:  </p>
+</li>
+<li>
+<p>Softmax function : $p(y=c|x: \theta_1.....\theta_C) = \frac{exp(\theta_c^Tx)}{\sum_{j=1}^C exp(\theta_j^Tx)} $  </p>
+</li>
+<li>
+<p>Better because it offers joint probability modeling, better scalability, and cleaner decision boundaries.  </p>
+</li>
+<li>
+<p>instead of modelling the log odds for a single class, we now compute the score for each class using a linear fn, exponentiate the scores and normalize using a softmax fn, this yields interpretable probablities for each class and let us optimize across entropy loss fn across all classes simultaneously.  </p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 class="atx" id="evaluate-performance">Evaluate Performance</h2>
+<table>
+<thead>
+<tr>
+<th>Classification</th>
+<th>Regression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Accuracy</strong> : Proportion of correct predictions out of all. (TP+TN)/(total)<br/>Use when classes are balanced</td>
+<td><strong>Mean Square Error</strong> (penalize large error)</td>
+</tr>
+<tr>
+<td><strong>Precision</strong> : Proportion of positive predictions that were correct. <br/>True positives / Predicted Positives = TP/(TP+FP)<br/>Use when FP are costly (eg. spam detection)</td>
+<td><strong>MAE</strong>(all deviation treated equally)</td>
+</tr>
+<tr>
+<td><strong>Recall</strong> : Proportion of actual positives that wer correctly predicted. TP/(TP+FN)<br/>Use when missing positives is risky (eg. cancer screening)</td>
+<td><strong>R-Squared Score</strong> (measures how much of variablility is explained by the model)</td>
+</tr>
+<tr>
+<td><strong>F1 score</strong>: Harmonic mean of precision &amp; recall, balancing both. (2*Precision*Recall) / (Precision+Recall)<br/>Use when we want middleground b/w avoiding FP and FN</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 class="atx" id="confusion-matrix">Confusion Matrix</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Actual \ Predicted</th>
+<th style="text-align: center;">Yes</th>
+<th style="text-align: center;">No</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Yes</strong></td>
+<td style="text-align: center;">TP</td>
+<td style="text-align: center;">FN</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>No</strong></td>
+<td style="text-align: center;">FP</td>
+<td style="text-align: center;">TN</td>
+</tr>
+</tbody>
+</table>
+<h2 class="atx" id="evaluate-comparision-between-2-models">Evaluate Comparision between 2 models</h2>
+<h3 class="atx" id="k-fold-cross-validation">K-fold cross-validation</h3>
+<ul>
+<li>
+<p>Steps:  </p>
+<ol>
+<li>
+<p>Divide full dataset into k parts.   </p>
+</li>
+<li>
+<p>Repeat k times : Train on k-1 sets and test on 1 set.   </p>
+</li>
+<li>
+<p>Result is average of k tests.  </p>
+</li>
+</ol>
+</li>
+<li>
+<p>Multiple trials of k-fold CV :   </p>
+<ol>
+<li>
+<p>Shuffle data  </p>
+</li>
+<li>
+<p>perform k-fold CV.  </p>
+</li>
+<li>
+<p>Loop 1 &amp; 2 for "t" times.  </p>
+</li>
+<li>
+<p>Compute stats over t x k performances of each partition for both models  </p>
+</li>
+</ol>
+</li>
+<li>
+<p>The below tests can be done with k-folds :  </p>
+<ol>
+<li>
+<p><u>Paired t-Test</u> : Compare performance of 2 models across same folds. <br/>
+    $t = \frac{\mu}{\sigma / \sqrt{n}} \qquad where\ \mu=\frac{\sum d_i}{n},\quad \sigma = \sqrt \frac{\sum(d_i- \mu)^2}{n-1}$     di is difference b\w performance at i'th fold<br/>
+    degrees of freedom = n-1<br/>
+    find p value from t and degrees of freedom<br/>
+    reject null hypo if p&lt;0.05  </p>
+</li>
+<li>
+<p><u>Wilcoxon Signed-Rank Test</u> : Non parametric alternative to paired t-Test, rank absolute difference in performance per fold.  </p>
+</li>
+<li>
+<p><u>McNemar's Test</u> : Not used directly with k-fold CV.   </p>
+</li>
+</ol>
+</li>
+<li>
+<p>These tests help Calculate p-val, the likelihood of observed difference occuring by chance.  </p>
+</li>
+<li>
+<p>p-val is probability of observing your data (or something more extreme) <strong>assuming the null hypothesis is true</strong>. <br/>
+    It helps you decide whether to reject the null hypothesis.  </p>
+</li>
+<li>
+<p>Smaller p-value =&gt; stronger evidence against the null.   </p>
+</li>
+</ul>
+<h3 class="atx" id="hypothesis-testing">Hypothesis Testing</h3>
+<ul>
+<li>
+<p>Define null and alt hypothesis:  </p>
+<ul>
+<li>
+<p><strong>Null hypo (H0)</strong> : theres no diff b/w models.   </p>
+<ul>
+<li>Defines a distribution P(m|H0) over some stat  </li>
+</ul>
+</li>
+<li>
+<p><strong>Alt hypo (H)</strong>:  one model performs better than other.  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Reject H0 if p-val P(m|H0) &lt;= S, where S is <em>predetermined</em> significance val (usually 0.05) and m is test statistic from data based on type of test.  </p>
+</li>
+</ul>
 </article>
 </body>
 </html>
