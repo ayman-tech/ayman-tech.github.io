@@ -10,8 +10,10 @@
   <script>
     MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\(', '\)']],
-        displayMath: [['$$', '$$'], ['\[', '\]']],
+        // inlineMath: [['$', '$'], ['\(', '\)']]
+        // displayMath: [['$$', '$$'], ['\[', '\]']],
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
         processEscapes: true,
         tags: 'ams'
       },
@@ -26,7 +28,7 @@
 <article class="markdown-body">
 <h1 class="atx" id="probablity-statistics">Probablity &amp; Statistics</h1>
 <p><a href="https://ayman-tech.github.io/">Back to Home</a> </p>
-<p><em>Last updated: 22 Sept 2025</em> </p>
+<p><em>Last updated: 09 Oct 2025</em> </p>
 <h2 class="atx" id="basics">Basics</h2>
 <ul>
 <li>
@@ -61,12 +63,14 @@ $A^c = { x : x\notin A }$  </p>
 </li>
 <li>
 <p>$A_1, A_2, ..... $ is a partition of S if :  </p>
-</li>
+<ul>
 <li>
 <p>$A_1, A_2,...$ are pairwise disjoint  </p>
 </li>
 <li>
 <p>$\bigcup\limits_{i} A_i = S$  </p>
+</li>
+</ul>
 </li>
 </ol>
 <h3 class="atx" id="sigma-algebra">Sigma Algebra</h3>
@@ -76,7 +80,7 @@ $A^c = { x : x\notin A }$  </p>
 </li>
 <li>
 <p>Satisfying  </p>
-</li>
+<ul>
 <li>
 <p>$\phi \in \mathcal{B}$   </p>
 </li>
@@ -86,6 +90,8 @@ $A^c = { x : x\notin A }$  </p>
 <li>
 <p>if $A_1, A_2, A_3,... \in \mathcal{B}$, then $\bigcup\limits_{i=1}\limits^{\infty} A_i \in \mathcal{B}$, (closed under countable unions).  </p>
 </li>
+</ul>
+</li>
 <li>
 <p>${\phi, S}$ is trivial sigma algebra associated with S.  </p>
 </li>
@@ -94,7 +100,7 @@ $A^c = { x : x\notin A }$  </p>
 <ul>
 <li>
 <p>Probablity function for pair (S, $\mathcal{B}$) is defined for P:$\mathcal{B}\ \rightarrow \mathbb{R} $ if it satisfies below <strong>Axioms of Probablity</strong>:  </p>
-</li>
+<ol>
 <li>
 <p>$P(A) \geq 0 \qquad  \forall A\in \mathcal{B}$  </p>
 </li>
@@ -104,9 +110,11 @@ $A^c = { x : x\notin A }$  </p>
 <li>
 <p>if $A_1, A_2, A_3,... \in \mathcal{B}$, are pairwise disjoint (countable) then $P(\bigcup\limits_{i=1}\limits^{\infty}) = \sum\limits_{i=1}\limits^{\infty}P(A_i) $)  </p>
 </li>
+</ol>
+</li>
 <li>
 <p>Properties of Probablity fn :  </p>
-</li>
+<ol>
 <li>
 <p>P($\phi$) = 0  </p>
 </li>
@@ -128,6 +136,8 @@ $A^c = { x : x\notin A }$  </p>
 <li>
 <p>if $A \subseteq B$ =&gt; P(A) $\le$ P(B)  </p>
 </li>
+</ol>
+</li>
 </ul>
 <h2 class="atx" id="conditional-probablity-independence">Conditional Probablity &amp; Independence</h2>
 <ul>
@@ -145,9 +155,9 @@ $A^c = { x : x\notin A }$  </p>
 </li>
 <li>
 <p><strong>Independent Events</strong> : $A, B \subseteq S\ are\ independent\ iff$  </p>
-</li>
-<li>
-<p>$P(A|B) = P(A) \quad &lt;=&gt; \quad P(B|A) = P(B)$  </p>
+<ul>
+<li>$P(A|B) = P(A) \quad &lt;=&gt; \quad P(B|A) = P(B)$  </li>
+</ul>
 </li>
 </ul>
 <h3 class="atx" id="bayes-theorum">Bayes Theorum</h3>
@@ -163,12 +173,14 @@ $A^c = { x : x\notin A }$  </p>
 <ul>
 <li>
 <p><strong>Fundamental Theory of Counting</strong> </p>
-</li>
+<ul>
 <li>
 <p>Let T be task of perfoming k tasks sequentially : $T_1, T_2,....T_k$ that can be permormed in $n_1, n_2,....n_k$ ways,  </p>
 </li>
 <li>
 <p>Total no of ways to perform T = $n_1<em>n_2</em>...*n_k$  </p>
+</li>
+</ul>
 </li>
 </ul>
 <table>
@@ -192,6 +204,341 @@ $A^c = { x : x\notin A }$  </p>
 </tr>
 </tbody>
 </table>
+<h2 class="atx" id="random-variables">Random Variables</h2>
+<ul>
+<li>
+<p>If S is sample space of an experiment, Random Variable X is a function whose domain is S and range a new sample space.<br/>
+    $X: S \rightarrow \mathbb R$<br/>
+    $w \rightarrow X(w)$  </p>
+</li>
+<li>
+<p>Image of X : X(S) = values of X on outcomes in S. [new sample space for original experiment]  </p>
+</li>
+<li>
+<p>If ${X=c} \subseteq S$  form a partition of S, then $S=\bigcup\limits_{c \in X} {X=c}$  (Disjoint union)  </p>
+</li>
+<li>
+<p>Probablity distribution table for X looks like below:  </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>$x\in \chi$</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P(X=$x$)</td>
+<td>1/16</td>
+<td>4/16</td>
+<td>6/16</td>
+<td>4/16</td>
+<td>1/16</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Note that sum is 1, hence partition of samples space.  </li>
+</ul>
+<h3 class="atx" id="probablity-distribution-of-random-variables">Probablity Distribution of Random Variables</h3>
+<ul>
+<li>
+<p>for X : S -&gt; R, the values $\chi$ of X define a new sample space.   </p>
+</li>
+<li>
+<p>if P is probablity fn for S, this induces a <strong>probablity fn for X</strong> : $P_X$ on $\chi$   </p>
+</li>
+<li>
+<p>Cumulative distribution fn of X : $F_X(x) = P(X\le x) \qquad \forall x$  </p>
+</li>
+<li>
+<p>A fn F(x) is cdf iff it follows the 3 conditions:  </p>
+<ul>
+<li>
+<p>$\lim\limits_{x\rightarrow -\infin} F(x) = 0, \qquad \lim\limits_{x\rightarrow +\infin} F(x) = 1$  </p>
+</li>
+<li>
+<p>F(x) is a non-decreasing fn.  </p>
+</li>
+<li>
+<p>F(x) is right continuous, i.e. $\lim\limits_{x\rightarrow x_0^+} F(x) = F(x_0), \quad \forall x_0 \in \mathbb R$  </p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X is Discrete</th>
+<th style="text-align: center;">X is Continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">$F_X(x)$ is step fn</td>
+<td style="text-align: center;">$F_X(x)$ is continuous fn</td>
+</tr>
+<tr>
+<td style="text-align: center;">Probablity Mass fn pmf is $p_X(x) = P(X=x) \quad \forall x$</td>
+<td style="text-align: center;">Probablity density fn pdf is $F_X(x) = \int\limits_{-\infin}\limits^x f_X(t)  dt \qquad \forall x$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$\chi$ is discrete subset of $\mathbb R$.</td>
+<td style="text-align: center;">$\chi$ is a union of intervals in $\mathbb R$.</td>
+</tr>
+<tr>
+<td style="text-align: center;">CDF:  $F_X(x) = P(X\le x) = \sum\limits_{y\in \chi  and  y\le x} p_X(y)$</td>
+<td style="text-align: center;">CDF :  $F_X(x) = P(X\le x) = \int\limits_{-\infin}\limits^x f_X(t)  dt$</td>
+</tr>
+<tr>
+<td style="text-align: center;">$P(a\le X \le b) = F(b) - F(a^-)$<br/>$a^-$ is largest possible val of X strictly less than a</td>
+<td style="text-align: center;">$P(a \le X \le b) = \int\limits_a\limits^b f_X(x)  dx$<br/>= $F_X(b) - F_X(a)$</td>
+</tr>
+</tbody>
+</table>
+<p>NOTE :  </p>
+<ul>
+<li>
+<p>if X is discrete with $c\in \chi,\qquad P(X=c) = p_X(c)$,  </p>
+</li>
+<li>
+<p>if X is continuous $P(X=c) = P(c\le X\le c) = \int_c^cf_X(x)  dx = 0$  </p>
+</li>
+</ul>
+<h3 class="atx" id="expectation-of-random-variables">Expectation of Random Variables</h3>
+<ul>
+<li>
+<p>if discrete : $E(X)$ or $\mu_x = \sum\limits_{x\in\chi} x.p_X(x)$  </p>
+</li>
+<li>
+<p>if continuous : $E(X) = \int_{-\infin}^\infin x.f_X(x)\ dx$  </p>
+</li>
+<li>
+<p>similar if h(X) is fn of X, replace X with h(x) in LHS and x with h(x) in RHS.  </p>
+</li>
+</ul>
+<h3 class="atx" id="variance-of-random-variable">Variance of Random Variable</h3>
+<ul>
+<li>
+<p>V(X) or $\mu_X^2 = E[(X-\mu_X)^2]$  </p>
+</li>
+<li>
+<p>if Discrete : V(X) or $\sigma_X^2 = \sum\limits_{x\in \chi} (x-\mu_X)^2.\ p_X(x)$  </p>
+</li>
+<li>
+<p>if continuous : $V(X) = \int_{-\infin}^{\infin} (x-\mu_X)^2.f_X(x) \ dx$  </p>
+</li>
+<li>
+<p>Standard Deviation $\sigma_X = \sqrt{V(x)}$  </p>
+</li>
+</ul>
+<h3 class="atx" id="properties-of-expectation-and-variance">Properties of Expectation and Variance</h3>
+<ul>
+<li>
+<p>if X is scaled to ax+b, E[h(x)] = E[aX+b] = aE(x) + b  </p>
+</li>
+<li>
+<p>V[h(X)] = $a^2$V(X)    and    SD(h(x)) = |a|SD(x)  </p>
+</li>
+<li>
+<p>$V(X) = E(X^2) - (E(X)^2)$  </p>
+</li>
+</ul>
+<h2 class="atx" id="continuous-random-variable">Continuous Random Variable</h2>
+<ul>
+<li>if X is continuous random var and $f_X$ is pdf of X, then cdf $F_X$ is continuous function<br/>
+    $F_X(x) =P(X\le x) =  \int_{-\infin}^x f_X(t) \ dt$  <p><img alt="CRV graph" src="../../imgs/crv_cdf.png"/> </p></li>
+</ul>
+
+<ul>
+<li>
+<p>$P(a \le X \le b) = \int\limits_a\limits^b f_X(x)  dx = F_X(b) - F_X(a)$  </p>
+</li>
+<li>
+<p>$P(X=c) = F_X(c) - F_X(c) = 0$,    continuous random var cannot take a particular val.  </p>
+</li>
+<li>
+<p>$P(X \gt c) = 1 = P(X \le c) = 1-F_X(c)$  </p>
+</li>
+<li>
+<p>We can use cdf to calculate pdf : $f_X(x) = F_X'(x)$  </p>
+</li>
+<li>
+<p>Let p in (0,1), the "(100*p) th" percentile for the distribution of X : $\eta(p)$ satisfies<br/>
+    $p=F_X(\eta(p)) = \int\limits_{-\infin}\limits^{\eta(p)}f_X(x)\ dx$  </p>
+</li>
+<li>
+<p>Let $\alpha$ in (0,1), the "$\alpha^{th}$" critical val for the distribution of X : $x_\alpha$ satisfies<br/>
+    $\alpha = P(X&gt;x_\alpha) = 1-F_X(x_\alpha)$<br/>
+<img alt="Plot for critical value and percentile" src="../../imgs/prob_percentile_critical.png"/> </p>
+</li>
+<li>
+<p>Note : (100*p)th percentile - same as -&gt; 100(1-p)th critical value  </p>
+</li>
+</ul>
+<h2 class="atx" id="discrete-random-variables">Discrete Random Variables</h2>
+<ul>
+<li>
+<p>given cdf of X  as "$F_X$" and pdf of X as "$f_X$" or "$p_X$" ,   </p>
+</li>
+<li>
+<p>X is discrete if cdf $F_X$ is a step fn.  </p>
+</li>
+<li>
+<p>When X is discrete, $\chi$ will be discrete subset of $\mathbb R$ and will be:  </p>
+<ul>
+<li>
+<p>finite set : in bijection with {1,2,3,....... n} for $n\in \mathbb N$  </p>
+</li>
+<li>
+<p>countably infinite set : in bijection with $\mathbb N$  </p>
+<p>Below are the different discrete random variables with finite $\chi$  </p></li>
+</ul>
+</li>
+</ul>
+
+<ol>
+<li>
+<p><strong>Uniform Discrete RV</strong> </p>
+<ul>
+<li>
+<p>$p_X(x) = P(X=x) = \frac{1}{N}$  </p>
+</li>
+<li>
+<p>E(X) = $\frac{N+1}{2}$  </p>
+</li>
+<li>
+<p>V(X) = $\frac{N^2-1}{12}$  </p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Calculation of $p_X(x) = P(X=x)$ depends on if  </p>
+<ul>
+<li>
+<p>Sampling without replacement =&gt; Hypergeometric distribution with params : N, M, n  </p>
+</li>
+<li>
+<p>Sampling with replacement =&gt; Binomial distribution with params : n, p=M/N  </p>
+</li>
+<li>
+<p><strong>Hypergeometric Distribution</strong> </p>
+<ul>
+<li>
+<p>P(X=x) = P( getting "x" successes in a sample of size "n" sampled without replacement from population of N size with M successes )  </p>
+</li>
+<li>
+<p>$p_X(x) = \frac{(^M_x)\ \  (^{N-M}_{n-x})}{(^N_n)}$   </p>
+</li>
+<li>
+<p>E(X) = $\frac{nM}{N}$ = np    (if p = M/N)  </p>
+</li>
+<li>
+<p>V(X) = $\frac{n(N-n)}{N-1}<em>p</em>(1-p)$    if p=M/N  </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Binomial Distribution</strong> </p>
+<ul>
+<li>
+<p>$p_X(x) = (^n_x)<em>p^x</em>(1-p)^{n-x}$  </p>
+</li>
+<li>
+<p>E(X) = np  </p>
+</li>
+<li>
+<p>V(X) = npq  </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Bernoulli Distribution</strong> </p>
+<ul>
+<li>
+<p>success = p, failure = 1-p, single try.  </p>
+</li>
+<li>
+<p>E(X) = p  </p>
+</li>
+<li>
+<p>V(X) = p(1-p)  </p>
+<p>Below are Different discrete variables with infinite $\chi$ :  </p></li>
+</ul>
+</li>
+</ul>
+
+<ol>
+<li>
+<p><strong>Poisson's Distribution</strong> </p>
+<ul>
+<li>
+<p>$p_X(x) = \frac{e^{-\lambda} * \lambda^x}{x!} \qquad where\ e^\lambda= 1+\lambda + \frac{\lambda^2}{2!} + \frac{\lambda^3}{3!} + .....$  </p>
+</li>
+<li>
+<p>we assume $p_X(x) \ge 0$ for legitimate PMF  </p>
+</li>
+<li>
+<p>$E(X) = \lambda$  </p>
+</li>
+<li>
+<p>$V(X) = \lambda$   </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Negative Binomial Distribution</strong> </p>
+<ul>
+<li>
+<p>Do repeated trials with P(success) = p till r success are observed with x failures  </p>
+</li>
+<li>
+<p>$p_X(x) = (^{x+r-1}<em>x)<em>p^r</em>(1-p)^x \qquad = (^{n-1}</em>{n-r})<em>p^{n-x}</em>(1-p)^{n-r}$ in terms of n; n=x+r  </p>
+</li>
+<li>
+<p>E(X) = $\frac{r(1-p)}{p}$  </p>
+</li>
+<li>
+<p>V(X) = $\frac{r(1-p)}{p^2}$  </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Geometric Distribution</strong> </p>
+<ul>
+<li>
+<p>Repeatedly do trials till one success.   </p>
+</li>
+<li>
+<p>Its special case of negative binomial pmf with r=1.  </p>
+</li>
+<li>
+<p>$p_X(x) = p(1-p)^{x-1}$  </p>
+</li>
+<li>
+<p>$E(X) = \frac{1}{p}$  </p>
+</li>
+<li>
+<p>$V(X) = \frac{(1-p)}{p^2}$  </p>
+</li>
+<li>
+<p>NOTE :  </p>
+</li>
+<li>
+<p>if $ N,M \rightarrow \infin\  such\ that\ \frac{M}{N} \rightarrow p : hypergeometric(x;N,M,n) \rightarrow binomial(x;n,p) $  </p>
+</li>
+<li>
+<p>if $n\rightarrow \infin\ and \ p\rightarrow0\ such \ that \ np\rightarrow\lambda : binomial(x;n,p) \rightarrow poissons(x;\lambda)$  </p>
+</li>
+</ul>
+</li>
+</ol>
 </article>
 </body>
 </html>
