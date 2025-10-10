@@ -261,7 +261,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>A fn F(x) is cdf iff it follows the 3 conditions:  </p>
 <ul>
 <li>
-<p>$\lim\limits_{x\rightarrow -\infin} F(x) = 0, \qquad \lim\limits_{x\rightarrow +\infin} F(x) = 1$  </p>
+<p>$\lim\limits_{x\rightarrow -\infty} F(x) = 0, \qquad \lim\limits_{x\rightarrow +\infty} F(x) = 1$  </p>
 </li>
 <li>
 <p>F(x) is a non-decreasing fn.  </p>
@@ -286,7 +286,7 @@ $A^c = { x : x\notin A }$  </p>
 </tr>
 <tr>
 <td style="text-align: center;">Probablity Mass fn pmf is $p_X(x) = P(X=x) \quad \forall x$</td>
-<td style="text-align: center;">Probablity density fn pdf is $F_X(x) = \int\limits_{-\infin}\limits^x f_X(t)  dt \qquad \forall x$</td>
+<td style="text-align: center;">Probablity density fn pdf is $F_X(x) = \int\limits_{-\infty}\limits^x f_X(t)  dt \qquad \forall x$</td>
 </tr>
 <tr>
 <td style="text-align: center;">$\chi$ is discrete subset of $\mathbb R$.</td>
@@ -294,7 +294,7 @@ $A^c = { x : x\notin A }$  </p>
 </tr>
 <tr>
 <td style="text-align: center;">CDF:  $F_X(x) = P(X\le x) = \sum\limits_{y\in \chi  and  y\le x} p_X(y)$</td>
-<td style="text-align: center;">CDF :  $F_X(x) = P(X\le x) = \int\limits_{-\infin}\limits^x f_X(t)  dt$</td>
+<td style="text-align: center;">CDF :  $F_X(x) = P(X\le x) = \int\limits_{-\infty}\limits^x f_X(t)  dt$</td>
 </tr>
 <tr>
 <td style="text-align: center;">$P(a\le X \le b) = F(b) - F(a^-)$<br/>$a^-$ is largest possible val of X strictly less than a</td>
@@ -317,7 +317,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>if discrete : $E(X)$ or $\mu_x = \sum\limits_{x\in\chi} x.p_X(x)$  </p>
 </li>
 <li>
-<p>if continuous : $E(X) = \int_{-\infin}^\infin x.f_X(x)\ dx$  </p>
+<p>if continuous : $E(X) = \int_{-\infty}^\infty x.f_X(x)\ dx$  </p>
 </li>
 <li>
 <p>similar if h(X) is fn of X, replace X with h(x) in LHS and x with h(x) in RHS.  </p>
@@ -332,7 +332,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>if Discrete : V(X) or $\sigma_X^2 = \sum\limits_{x\in \chi} (x-\mu_X)^2.\ p_X(x)$  </p>
 </li>
 <li>
-<p>if continuous : $V(X) = \int_{-\infin}^{\infin} (x-\mu_X)^2.f_X(x) \ dx$  </p>
+<p>if continuous : $V(X) = \int_{-\infty}^{\infty} (x-\mu_X)^2.f_X(x) \ dx$  </p>
 </li>
 <li>
 <p>Standard Deviation $\sigma_X = \sqrt{V(x)}$  </p>
@@ -353,7 +353,7 @@ $A^c = { x : x\notin A }$  </p>
 <h2 class="atx" id="continuous-random-variable">Continuous Random Variable</h2>
 <ul>
 <li>if X is continuous random var and $f_X$ is pdf of X, then cdf $F_X$ is continuous function<br/>
-    $F_X(x) =P(X\le x) =  \int_{-\infin}^x f_X(t) \ dt$  <p><img alt="CRV graph" src="../../imgs/crv_cdf.png"/> </p></li>
+    $F_X(x) =P(X\le x) =  \int_{-\infty}^x f_X(t) \ dt$  <p><img alt="CRV graph" src="../../imgs/crv_cdf.png"/> </p></li>
 </ul>
 
 <ul>
@@ -371,7 +371,7 @@ $A^c = { x : x\notin A }$  </p>
 </li>
 <li>
 <p>Let p in (0,1), the "(100*p) th" percentile for the distribution of X : $\eta(p)$ satisfies<br/>
-    $p=F_X(\eta(p)) = \int\limits_{-\infin}\limits^{\eta(p)}f_X(x)\ dx$  </p>
+    $p=F_X(\eta(p)) = \int\limits_{-\infty}\limits^{\eta(p)}f_X(x)\ dx$  </p>
 </li>
 <li>
 <p>Let $\alpha$ in (0,1), the "$\alpha^{th}$" critical val for the distribution of X : $x_\alpha$ satisfies<br/>
@@ -531,10 +531,10 @@ $A^c = { x : x\notin A }$  </p>
 <p>NOTE :  </p>
 </li>
 <li>
-<p>if $ N,M \rightarrow \infin\  such\ that\ \frac{M}{N} \rightarrow p : hypergeometric(x;N,M,n) \rightarrow binomial(x;n,p) $  </p>
+<p>if $ N,M \rightarrow \infty\  such\ that\ \frac{M}{N} \rightarrow p : hypergeometric(x;N,M,n) \rightarrow binomial(x;n,p) $  </p>
 </li>
 <li>
-<p>if $n\rightarrow \infin\ and \ p\rightarrow0\ such \ that \ np\rightarrow\lambda : binomial(x;n,p) \rightarrow poissons(x;\lambda)$  </p>
+<p>if $n\rightarrow \infty\ and \ p\rightarrow0\ such \ that \ np\rightarrow\lambda : binomial(x;n,p) \rightarrow poissons(x;\lambda)$  </p>
 </li>
 </ul>
 </li>

@@ -47,7 +47,8 @@ def convert_md_to_html(md_path: str,
         stripped = line.rstrip('\n')
         if stripped and not stripped.endswith('  ') and '<br>' not in stripped:
             stripped += '  '
-        processed_lines.append(stripped + '\n')
+        updated_line = stripped.replace(r"\infin", r"\infty")  # fix infin support
+        processed_lines.append(updated_line + '\n')
 
     md_text = ''.join(processed_lines)
 
