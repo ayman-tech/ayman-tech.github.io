@@ -23,12 +23,13 @@
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  
 </head>
 <body>
 <article class="markdown-body">
 <h1 class="atx" id="probablity-statistics">Probablity &amp; Statistics</h1>
 <p><a href="https://ayman-tech.github.io/">Back to Home</a> </p>
-<p><em>Last updated: 09 Oct 2025</em> </p>
+<p><em>Last updated: 15 Oct 2025</em> </p>
 <h2 class="atx" id="basics">Basics</h2>
 <ul>
 <li>
@@ -293,7 +294,7 @@ $A^c = { x : x\notin A }$  </p>
 <td style="text-align: center;">$\chi$ is a union of intervals in $\mathbb R$.</td>
 </tr>
 <tr>
-<td style="text-align: center;">CDF:  $F_X(x) = P(X\le x) = \sum\limits_{y\in \chi  and  y\le x} p_X(y)$</td>
+<td style="text-align: center;">CDF:  $F_X(x) = P(X\le x) = \sum\limits_{y\in \chi,\ y\le x} p_X(y)$</td>
 <td style="text-align: center;">CDF :  $F_X(x) = P(X\le x) = \int\limits_{-\infty}\limits^x f_X(t)  dt$</td>
 </tr>
 <tr>
@@ -370,11 +371,11 @@ $A^c = { x : x\notin A }$  </p>
 <p>We can use cdf to calculate pdf : $f_X(x) = F_X'(x)$  </p>
 </li>
 <li>
-<p>Let p in (0,1), the "(100*p) th" percentile for the distribution of X : $\eta(p)$ satisfies<br/>
+<p>Let p in (0,1), the (100*p) th percentile for the distribution of X : $\eta(p)$ satisfies<br/>
     $p=F_X(\eta(p)) = \int\limits_{-\infty}\limits^{\eta(p)}f_X(x)\ dx$  </p>
 </li>
 <li>
-<p>Let $\alpha$ in (0,1), the "$\alpha^{th}$" critical val for the distribution of X : $x_\alpha$ satisfies<br/>
+<p>Let $\alpha$ in (0,1), the $\alpha^{th}$ critical val for the distribution of X : $x_\alpha$ satisfies<br/>
     $\alpha = P(X&gt;x_\alpha) = 1-F_X(x_\alpha)$<br/>
 <img alt="Plot for critical value and percentile" src="../../imgs/prob_percentile_critical.png"/> </p>
 </li>
@@ -440,7 +441,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>E(X) = $\frac{nM}{N}$ = np    (if p = M/N)  </p>
 </li>
 <li>
-<p>V(X) = $\frac{n(N-n)}{N-1}<em>p</em>(1-p)$    if p=M/N  </p>
+<p>V(X) = $\frac{n(N-n)}{N-1}\ p\ (1-p)$    if p=M/N  </p>
 </li>
 </ul>
 </li>
@@ -448,7 +449,7 @@ $A^c = { x : x\notin A }$  </p>
 <p><strong>Binomial Distribution</strong> </p>
 <ul>
 <li>
-<p>$p_X(x) = (^n_x)<em>p^x</em>(1-p)^{n-x}$  </p>
+<p>$p_X(x) = (^n_x)\ p^x\ (1-p)^{n-x}$  </p>
 </li>
 <li>
 <p>E(X) = np  </p>
@@ -539,6 +540,58 @@ $A^c = { x : x\notin A }$  </p>
 </ul>
 </li>
 </ol>
+<h2 class="atx" id="normal-distribution-continuous-random-variable">Normal Distribution - Continuous Random Variable</h2>
+<ul>
+<li>
+<p>Denoted by $N(\mu, \sigma^2)$: mean $\mu$ and variance $\sigma^2$.  </p>
+</li>
+<li>
+<p>if X is normally distributed, pdf of X : $f(x) = \frac{1}{\sqrt{2\pi}\sigma} * e^\frac{-(x-\mu)^2}{2\sigma^2} \qquad x\in(-\infty, \infty)$  </p>
+</li>
+<li>
+<p>CDF $F_X(x) = P(X\le x) = \int\limits^x_{-\infty}f(t)dt = \frac{1}{\sqrt{2\pi}\sigma} \int\limits_{-\infty}^x e^\frac{-(t-\mu)^2}{2\sigma^2}dt$<br/>
+    make integrals from a =&gt; b to calculate P( a &lt;= X &lt;= b)  </p>
+</li>
+<li>
+<p><strong>Standard Normal Distribution</strong> : normal dist where N(0, 1) i.e. mean = 0, variance = 1  </p>
+</li>
+<li>
+<p>if X is normal distribution $N(\mu, \sigma^2)$ and Z is standard normal distribution $Z\sim N(0,1)$<br/>
+    $\qquad P(X\le x) = \frac{1}{\sqrt{2\pi}\sigma} \int\limits_{-\infty}^x e^\frac{-(t-\mu)^2}{2\sigma^2} dt$<br/>
+    let $s = \frac{t-\mu}{\sigma}$<br/>
+    $\qquad P(X\le x) = \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^\frac{x-\mu}{\sigma} e^\frac{-s ^2}{2}ds = P(Z\le\frac{x-\mu}{\sigma})$<br/>
+    This Denotes $X\sim N(\mu, \sigma^2)$ then $(x-\mu)/\sigma$ has the standard normal distribution  </p>
+</li>
+<li>
+<p>$z = (x-\mu)/\sigma$ is called as Z-score of x  </p>
+</li>
+<li>
+<p>cdf of normal distribution is often denoted by $\Phi(z)$  </p>
+<p><img alt="Normal Distribution curve" src="../../imgs/prob_normal.png"/> </p></li>
+</ul>
+
+<ul>
+<li>
+<p>if Z is standard normal dist and $z_\alpha$ is $\alpha^{th}$ critical value , then it satisfies<br/>
+    $P(Z\ge z_\alpha) = \alpha \text{}$<br/>
+    $1-P(Z\le z_\alpha) = 1-\Phi(z_\alpha) = \alpha$  </p>
+</li>
+<li>
+<p>if $p \in (0,1)$,  (100p)th percentile, $\eta (p)$ satisfies<br/>
+    $P(Z\le \eta(p)) = \Phi(\eta(p)) = p$  </p>
+</li>
+<li>
+<p>Suppose  $X\sim N(\mu, \sigma^2)$ and $\alpha \in (0,1)$<br/>
+    $\alpha$th critical value = $x_\alpha = \sigma*z_\alpha + \mu \qquad where\ z_\alpha = \alpha \text{th critical value for } Z \sim N(0,1 )$  </p>
+<p><strong>Approximate Bin(n,p) using Normal Distribution</strong> </p></li>
+</ul>
+
+<ul>
+<li>Let $X \sim Bin(n,p) \qquad where\ \mu_X = np\ \quad \sigma^2 = npq$<br/>
+    if Bin(n,p) is not too skewed,<br/>
+    $P(X\le x) \approx \Phi((x+0.5-\mu_X)/\sigma_X)$  </li>
+</ul>
+<h2 class="atx" id="gamma-distribution-continuous-random-variable">Gamma Distribution - Continuous Random Variable</h2>
 </article>
 </body>
 </html>
