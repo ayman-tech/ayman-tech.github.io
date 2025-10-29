@@ -29,7 +29,7 @@
 <article class="markdown-body">
 <h1 class="atx" id="probablity-statistics">Probablity &amp; Statistics</h1>
 <p><a href="https://ayman-tech.github.io/">Back to Home</a> </p>
-<p><em>Last updated: 15 Oct 2025</em> </p>
+<p><em>Last updated: 28 Oct 2025</em> </p>
 <h2 class="atx" id="basics">Basics</h2>
 <ul>
 <li>
@@ -46,7 +46,7 @@
 <ol>
 <li>$\ A \subseteq B  =&gt;  A\ subset\ of\ B $  </li>
 <li>$\ A = B =&gt; A\subseteq B \ and \ B\subseteq A$  </li>
-<li>$\ Empty\ set (\phi) =&gt; Set\ with\ no\ element =&gt; \phi\ is\ contained in every set$  </li>
+<li>Empty set ($\phi$) =&gt; Set with no element =&gt; $\phi$ is contained in every set  </li>
 </ol>
 <h3 class="atx" id="operations-with-sets">Operations with sets</h3>
 <p>$A\cup B = { x: x \in A\ or\  x \in B }$<br/>
@@ -132,7 +132,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>$P(B\cap A^c) = P(B) - P(A\cap B)$  </p>
 </li>
 <li>
-<p>$P(A \cup B) = P(A) + P(B) - P(A\cup B)$  </p>
+<p>$P(A \cup B) $ = $P(A) + P(B) - P(A\cup B)$  </p>
 </li>
 <li>
 <p>if $A \subseteq B$ =&gt; P(A) $\le$ P(B)  </p>
@@ -152,12 +152,12 @@ $A^c = { x : x\notin A }$  </p>
 <p>$P(A|B) = \frac{P(A\ \cap\ B)}{P(B)}$  </p>
 </li>
 <li>
-<p><strong>Multiplication Rule</strong> : $P(A\cap B) = P(A|B)<em>P(B) = P(B|A)</em>P(A)$  </p>
+<p><strong>Multiplication Rule</strong> : $P(A\cap B) $ = $P(A|B)\cdot P(B) $ = $P(B|A)\cdot P(A)$  </p>
 </li>
 <li>
-<p><strong>Independent Events</strong> : $A, B \subseteq S\ are\ independent\ iff$  </p>
+<p><strong>Independent Events</strong> : $A, B \subseteq S$ are independent iff  </p>
 <ul>
-<li>$P(A|B) = P(A) \quad &lt;=&gt; \quad P(B|A) = P(B)$  </li>
+<li>$P(A|B) = P(A),$ and $P(B|A) = P(B)$  </li>
 </ul>
 </li>
 </ul>
@@ -167,7 +167,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>use prior probablities to calculate posterior probablities  </p>
 </li>
 <li>
-<p>$P(A_j | B) = \frac{P(B|A_j)*P(A_j)}{\sum\limits_{i-1}\limits^{n} P(B|A_i) * P(A_i)} $,                   all probablities on rhs are prior probs  </p>
+<p>$P(A_j | B) = \frac{P(B|A_j) \cdot P(A_j)}{\sum\limits_{i-1}\limits^{n} P(B|A_i) \cdot P(A_i)} $,                   all probablities on rhs are prior probs  </p>
 </li>
 </ul>
 <h2 class="atx" id="counting">Counting</h2>
@@ -179,7 +179,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>Let T be task of perfoming k tasks sequentially : $T_1, T_2,....T_k$ that can be permormed in $n_1, n_2,....n_k$ ways,  </p>
 </li>
 <li>
-<p>Total no of ways to perform T = $n_1<em>n_2</em>...*n_k$  </p>
+<p>Total no of ways to perform T = $n_1\cdot n_2...\cdot n_k$  </p>
 </li>
 </ul>
 </li>
@@ -256,13 +256,13 @@ $A^c = { x : x\notin A }$  </p>
 <p>if P is probablity fn for S, this induces a <strong>probablity fn for X</strong> : $P_X$ on $\chi$   </p>
 </li>
 <li>
-<p>Cumulative distribution fn of X : $F_X(x) = P(X\le x) \qquad \forall x$  </p>
+<p>Cumulative distribution fn of X : $F_X(x) = P(X\le x),\ \forall x$  </p>
 </li>
 <li>
 <p>A fn F(x) is cdf iff it follows the 3 conditions:  </p>
 <ul>
 <li>
-<p>$\lim\limits_{x\rightarrow -\infty} F(x) = 0, \qquad \lim\limits_{x\rightarrow +\infty} F(x) = 1$  </p>
+<p>$\lim\limits_{x\rightarrow -\infty} F(x) = 0, \quad \lim\limits_{x\rightarrow +\infty} F(x) = 1$  </p>
 </li>
 <li>
 <p>F(x) is a non-decreasing fn.  </p>
@@ -286,8 +286,8 @@ $A^c = { x : x\notin A }$  </p>
 <td style="text-align: center;">$F_X(x)$ is continuous fn</td>
 </tr>
 <tr>
-<td style="text-align: center;">Probablity Mass fn pmf is $p_X(x) = P(X=x) \quad \forall x$</td>
-<td style="text-align: center;">Probablity density fn pdf is $F_X(x) = \int\limits_{-\infty}\limits^x f_X(t)  dt \qquad \forall x$</td>
+<td style="text-align: center;">Probablity Mass fn pmf is $p_X(x) = P(X=x),\ \forall x$</td>
+<td style="text-align: center;">Probablity density fn pdf is $F_X(x) = \int\limits_{-\infty}\limits^x f_X(t)\ dt,\ \forall x$</td>
 </tr>
 <tr>
 <td style="text-align: center;">$\chi$ is discrete subset of $\mathbb R$.</td>
@@ -295,11 +295,11 @@ $A^c = { x : x\notin A }$  </p>
 </tr>
 <tr>
 <td style="text-align: center;">CDF:  $F_X(x) = P(X\le x) = \sum\limits_{y\in \chi,\ y\le x} p_X(y)$</td>
-<td style="text-align: center;">CDF :  $F_X(x) = P(X\le x) = \int\limits_{-\infty}\limits^x f_X(t)  dt$</td>
+<td style="text-align: center;">CDF :  $F_X(x) $ = $P(X\le x) $ = $\int\limits_{-\infty}\limits^x f_X(t)  dt$</td>
 </tr>
 <tr>
 <td style="text-align: center;">$P(a\le X \le b) = F(b) - F(a^-)$<br/>$a^-$ is largest possible val of X strictly less than a</td>
-<td style="text-align: center;">$P(a \le X \le b) = \int\limits_a\limits^b f_X(x)  dx$<br/>= $F_X(b) - F_X(a)$</td>
+<td style="text-align: center;">$P(a \le X \le b) $ = $\int\limits_a\limits^b f_X(x)  dx$<br/>= $F_X(b) - F_X(a)$</td>
 </tr>
 </tbody>
 </table>
@@ -309,7 +309,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>if X is discrete with $c\in \chi,\qquad P(X=c) = p_X(c)$,  </p>
 </li>
 <li>
-<p>if X is continuous $P(X=c) = P(c\le X\le c) = \int_c^cf_X(x)  dx = 0$  </p>
+<p>if X is continuous $P(X=c) = P(c\le X\le c) $ = $\int_c^cf_X(x)  dx = 0$  </p>
 </li>
 </ul>
 <h3 class="atx" id="expectation-of-random-variables">Expectation of Random Variables</h3>
@@ -354,12 +354,12 @@ $A^c = { x : x\notin A }$  </p>
 <h2 class="atx" id="continuous-random-variable">Continuous Random Variable</h2>
 <ul>
 <li>if X is continuous random var and $f_X$ is pdf of X, then cdf $F_X$ is continuous function<br/>
-    $F_X(x) =P(X\le x) =  \int_{-\infty}^x f_X(t) \ dt$  <p><img alt="CRV graph" src="../../imgs/crv_cdf.png"/> </p></li>
+    $F_X(x) =P(X\le x) $ = $\int_{-\infty}^x f_X(t) \ dt$  <p><img alt="CRV graph" src="../../imgs/crv_cdf.png"/> </p></li>
 </ul>
 
 <ul>
 <li>
-<p>$P(a \le X \le b) = \int\limits_a\limits^b f_X(x)  dx = F_X(b) - F_X(a)$  </p>
+<p>$P(a \le X \le b) $ = $ \int\limits_a\limits^b f_X(x)  dx $ = $F_X(b) - F_X(a)$  </p>
 </li>
 <li>
 <p>$P(X=c) = F_X(c) - F_X(c) = 0$,    continuous random var cannot take a particular val.  </p>
@@ -480,7 +480,7 @@ $A^c = { x : x\notin A }$  </p>
 <p><strong>Poisson's Distribution</strong> </p>
 <ul>
 <li>
-<p>$p_X(x) = \frac{e^{-\lambda} * \lambda^x}{x!} \qquad where\ e^\lambda= 1+\lambda + \frac{\lambda^2}{2!} + \frac{\lambda^3}{3!} + .....$  </p>
+<p>$p_X(x) = \frac{e^{-\lambda} \cdot \lambda^x}{x!} \qquad where\ e^\lambda= 1+\lambda + \frac{\lambda^2}{2!} + \frac{\lambda^3}{3!} + .....$  </p>
 </li>
 <li>
 <p>we assume $p_X(x) \ge 0$ for legitimate PMF  </p>
@@ -500,7 +500,7 @@ $A^c = { x : x\notin A }$  </p>
 <p>Do repeated trials with P(success) = p till r success are observed with x failures  </p>
 </li>
 <li>
-<p>$p_X(x) = (^{x+r-1}<em>x)<em>p^r</em>(1-p)^x \qquad = (^{n-1}</em>{n-r})<em>p^{n-x}</em>(1-p)^{n-r}$ in terms of n; n=x+r  </p>
+<p>$p_X(x) = (^{x+r-1}<em>x) \cdot p^r \cdot (1-p)^x $ = $(^{n-1}</em>{n-r}) \cdot p^{n-x} \cdot (1-p)^{n-r}$ in terms of n; n=x+r  </p>
 </li>
 <li>
 <p>E(X) = $\frac{r(1-p)}{p}$  </p>
@@ -532,24 +532,39 @@ $A^c = { x : x\notin A }$  </p>
 <p>NOTE :  </p>
 </li>
 <li>
-<p>if $ N,M \rightarrow \infty\  such\ that\ \frac{M}{N} \rightarrow p : hypergeometric(x;N,M,n) \rightarrow binomial(x;n,p) $  </p>
+<p>if $ N,M \rightarrow \infty\ $ such that$\frac{M}{N} \rightarrow p : hypergeometric(x;N,M,n) \rightarrow binomial(x;n,p) $  </p>
 </li>
 <li>
-<p>if $n\rightarrow \infty\ and \ p\rightarrow0\ such \ that \ np\rightarrow\lambda : binomial(x;n,p) \rightarrow poissons(x;\lambda)$  </p>
+<p>if $n\rightarrow \infty\ and \ p\rightarrow0\ $ such that $np\rightarrow\lambda : binomial(x;n,p) $ $ \rightarrow poissons(x;\lambda)$  </p>
 </li>
 </ul>
 </li>
 </ol>
+<h2 class="atx" id="uniform-continuous-dist-cont-rand-variable">Uniform Continuous Dist - Cont Rand Variable</h2>
+<ul>
+<li>
+<p>PDF : $f(x) = 1/(B-A) \quad x\in [A,B],$ 0 otherwise  </p>
+</li>
+<li>
+<p>CDF : $F(x) = x/(B-A)\quad if\ x\in [A,B]$ $,0\ \ if\ x&lt;A,\ 1\ \ if\ x\ge B$  </p>
+</li>
+<li>
+<p>E(X) = (B+A)/2  </p>
+</li>
+<li>
+<p>V(X) = $\frac{(b-a)^2}{12}$  where a,b in [A,B] and a&lt;b  </p>
+</li>
+</ul>
 <h2 class="atx" id="normal-distribution-continuous-random-variable">Normal Distribution - Continuous Random Variable</h2>
 <ul>
 <li>
 <p>Denoted by $N(\mu, \sigma^2)$: mean $\mu$ and variance $\sigma^2$.  </p>
 </li>
 <li>
-<p>if X is normally distributed, pdf of X : $f(x) = \frac{1}{\sqrt{2\pi}\sigma} * e^\frac{-(x-\mu)^2}{2\sigma^2} \qquad x\in(-\infty, \infty)$  </p>
+<p>if X is normally distributed, pdf of X : $f(x) = \frac{1}{\sqrt{2\pi}\sigma} \cdot e^\frac{-(x-\mu)^2}{2\sigma^2} \quad x\in(-\infty, \infty)$  </p>
 </li>
 <li>
-<p>CDF $F_X(x) = P(X\le x) = \int\limits^x_{-\infty}f(t)dt = \frac{1}{\sqrt{2\pi}\sigma} \int\limits_{-\infty}^x e^\frac{-(t-\mu)^2}{2\sigma^2}dt$<br/>
+<p>CDF :  $F_X(x) = P(X\le x) $ = $ \int\limits^x_{-\infty}f(t)dt = \frac{1}{\sqrt{2\pi}\sigma} \int\limits_{-\infty}^x e^\frac{-(t-\mu)^2}{2\sigma^2}dt$<br/>
     make integrals from a =&gt; b to calculate P( a &lt;= X &lt;= b)  </p>
 </li>
 <li>
@@ -582,16 +597,204 @@ $A^c = { x : x\notin A }$  </p>
 </li>
 <li>
 <p>Suppose  $X\sim N(\mu, \sigma^2)$ and $\alpha \in (0,1)$<br/>
-    $\alpha$th critical value = $x_\alpha = \sigma*z_\alpha + \mu \qquad where\ z_\alpha = \alpha \text{th critical value for } Z \sim N(0,1 )$  </p>
+    $\alpha$th critical value = $x_\alpha = \sigma \cdot z_\alpha + \mu$    where $\ z_\alpha = \alpha \text{th critical value for } Z \sim N(0,1 )$  </p>
 <p><strong>Approximate Bin(n,p) using Normal Distribution</strong> </p></li>
 </ul>
 
 <ul>
-<li>Let $X \sim Bin(n,p) \qquad where\ \mu_X = np\ \quad \sigma^2 = npq$<br/>
+<li>Let $X \sim Bin(n,p)$   where   $ \mu_X = np\ \quad \sigma^2 = npq$<br/>
     if Bin(n,p) is not too skewed,<br/>
     $P(X\le x) \approx \Phi((x+0.5-\mu_X)/\sigma_X)$  </li>
 </ul>
 <h2 class="atx" id="gamma-distribution-continuous-random-variable">Gamma Distribution - Continuous Random Variable</h2>
+<ul>
+<li>
+<p>Useful when modelling events related to time, eg component lifetimes, waiting times, etc.  </p>
+</li>
+<li>
+<p>Gamma fn $\Gamma(\alpha) = \int_0^\infty t^{\alpha-1} e^{-t}dt$,    for $\alpha &gt; 0$  </p>
+</li>
+<li>
+<p>Properties :  </p>
+<ul>
+<li>
+<p>$\Gamma(\alpha) = \alpha\ \Gamma(\alpha)$ <br/>
+    can check if $\Gamma(1) = 1$ and using induction we have $\Gamma(n) = (n-1)!$   </p>
+</li>
+<li>
+<p>$\Gamma(1/2) = \sqrt{\pi}$  </p>
+</li>
+<li>
+<p>$f(x; \alpha, \beta) = \frac{1}{\beta^\alpha\ \Gamma(\alpha)} \cdot x^{\alpha-1} \cdot e^{-x/\beta}$  if x&gt;=0, else 0<br/>
+    we note below:  </p>
+<ul>
+<li>
+<p>$f(x;\alpha, \beta) \ge 0 \quad \forall x\in \mathbb R$  </p>
+</li>
+<li>
+<p>$\int^\infty_{-\infty} f(x; \alpha, \beta) dx = 1$<br/>
+    f will be pdf of given variable  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>We can say X has gamma dist with shape param $\alpha$ , and scale param $\beta$ if the pdf of X is $f(x; \alpha, \beta)$  </p>
+</li>
+<li>
+<p>when beta = 1 =&gt; "Standard Gamma distribution" wiht shap param $\alpha$  </p>
+</li>
+<li>
+<p>if X ~Gamma(alpha, beta) then   </p>
+<ul>
+<li>
+<p>E(X) = $\mu_X = \alpha \cdot \beta$  </p>
+</li>
+<li>
+<p>V(X) = $\sigma_X^2 = \alpha \cdot \beta^2$  </p>
+</li>
+<li>
+<p>$ \sigma_X = \sqrt{\alpha} \cdot \beta$  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>The cdf of X ~ Gamma(alpha, beta)<br/>
+    $F_X(x; \alpha, \beta) = \int_0^x f(t; \alpha, \beta)\ dt$    if x&gt;0,   0  otherwise  </p>
+</li>
+<li>
+<p>$P(X \le x) = F_X(x; \alpha, \beta) = F(x/\beta; \alpha)$ [cdf of standard gamma with param $\alpha$]  </p>
+</li>
+<li>
+<p>if T has standard gamma with shap param $\alpha$ =&gt;   X = $\beta \cdot T$ has gamma dist with shape alpha and scale beta  </p>
+</li>
+<li>
+<p>Special cases of Gamma Distribution   </p>
+<ol>
+<li>
+<p><strong>Exponential dist</strong> : $\alpha = 1,\ \beta = 1/\lambda$  </p>
+<ul>
+<li>
+<p>Get exponential dist with param $\lambda &gt; 0$  </p>
+</li>
+<li>
+<p>pdf $f(x; \lambda) = \lambda \cdot e^{-\lambda x}$   if x&gt;=0,   0 otherwise  </p>
+</li>
+<li>
+<p>cdf $F_X(x; \lambda = 1-e^{-\lambda x}$  </p>
+</li>
+<li>
+<p>$E(X) = \mu_X = 1/\lambda$  </p>
+</li>
+<li>
+<p>$V(X) = \sigma_X^2 = 1/\lambda^2$  </p>
+<p>Poisson process with rate $\alpha$ =&gt; the exponential dist with $\lambda = \alpha$ models the distribution of elapsed time b/w occurence of 2 successive events<br/>
+if X ~ Exp($\lambda$) : $P(X \ge t+t_0\ |\ X \ge t_0)$ = $\frac{P[(X \ge t+t_0) \cap (X\ge t_0)]}{P(X \ge t_0)}$ = P(X&gt;=t)  </p></li>
+</ul>
+
+</li>
+<li>
+<p><strong>Chi-Squared Dist</strong>: X ~ Gamma (alpha, beta) with $\alpha = v/2,\ \beta = 2$  </p>
+<ul>
+<li>
+<p>param is $v$ : degrees of freedom  </p>
+</li>
+<li>
+<p>pdf  $f(x; v) = (x^{v/2 - 1} \cdot e^{-x/2}) / (2^{v/2} \cdot \Gamma(v/2))$   if x &gt;=0,   0 otherwise  </p>
+</li>
+<li>
+<p>$E(X) = \mu_X = \alpha \cdot \beta = v$  </p>
+</li>
+<li>
+<p>$V(X) = \sigma_X^2 = \alpha \cdot \beta^2 = 2v$  </p>
+</li>
+<li>
+<p>chi-square dist is imp in statistical inference of population variance  </p>
+</li>
+<li>
+<p>if $X\sim N(\mu, \sigma^2)$ then $(\frac{x-\mu}{\sigma})^2$ has chi-sq dist with v=1  </p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 class="atx" id="log-normal-dist-crv">Log Normal Dist - CRV</h2>
+<ul>
+<li>
+<p>X has log normal dist if ln(X) has normal dist : $ln(X) \sim N(\mu, \sigma^2)$   </p>
+</li>
+<li>
+<p>if X has lognormal dist, pdf $f(x; \mu, \sigma) = $ $\frac{1}{\sqrt{2\pi}\sigma} \cdot e^{-(ln(x)-\mu)^2/2\sigma^2}$   if x &gt;=0 , 0 otherwise<br/>
+    Note $\mu \text{ and } \sigma$ are mean and variance of ln(X)  </p>
+</li>
+<li>
+<p>E(X) = $\mu_X = e^{\mu +\sigma^2/2}$  </p>
+</li>
+<li>
+<p>V(X) = $\sigma_X^2 = e^{2\mu + \sigma^2}(e^{\sigma^2} - 1)$  </p>
+</li>
+<li>
+<p>to use std normal dist to calc probablities <br/>
+    cdf $F_X(x; \mu, \sigma) =$ $P(X \le x) = \phi(\frac{ln(x) - \mu}{\sigma})$  </p>
+</li>
+</ul>
+<h2 class="atx" id="beta-dist">Beta Dist</h2>
+<ul>
+<li>
+<p>takes vals in finite interval  </p>
+</li>
+<li>
+<p>X is said to have beta dist with param $\alpha, \beta &gt; 0$ if pdf of X is <br/>
+    $F(x; \alpha, \beta) =$ $\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\cdot \Gamma(\beta)} \cdot x^{\alpha-1} \cdot (1-x)^{\beta-1}$   where x in (0,1)  </p>
+</li>
+<li>
+<p>called beta dist because of beta fn $B(\alpha, \beta) = \frac{\Gamma(\alpha)\cdot \Gamma(\beta)}{\Gamma(\alpha + \beta)}$  </p>
+</li>
+<li>
+<p>E(X) = $\mu_X = \frac{\alpha}{\alpha + \beta}$  </p>
+</li>
+<li>
+<p>V(X) = $\sigma_X^2 = \frac{\alpha \beta}{(\alpha+\beta)^2 (\alpha + \beta+1)}$  </p>
+</li>
+<li>
+<p>Depending on values of alpha and beta, pdf has diff shapes:  </p>
+<ol>
+<li>
+<p>alpha &gt; 1, beta = 1  =&gt;  strictly increasing  </p>
+</li>
+<li>
+<p>alpha = 1, beta &gt; 1  =&gt;  strictly decreasing  </p>
+</li>
+<li>
+<p>alpha &lt; 1, beta &lt; 1  =&gt;  U shaped  </p>
+</li>
+<li>
+<p>alpha = beta  =&gt;  symmetric about 1/2, with $\mu_X = 1/2$ and $\sigma_X^2 = 1/4(2\alpha+1)$  </p>
+</li>
+<li>
+<p>alpha = beta = 1  =&gt;  get uniform dist on (0,1)  </p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 class="atx" id="cauchy-dist">Cauchy Dist</h2>
+<ul>
+<li>
+<p>X is said to have cauchy dist with param $\theta$ if <br/>
+    pdf(X) = $f(x; \theta) = \frac{1}{\pi(1+(x-\theta)^2)}$  </p>
+</li>
+<li>
+<p>E(X) and V(X) do not exists for cauchy dist  </p>
+</li>
+<li>
+<p>graph of pdf is bell shaped (like normal density) but has heavier tails  </p>
+</li>
+<li>
+<p>Related to t-distribution  </p>
+</li>
+</ul>
 </article>
 </body>
 </html>
