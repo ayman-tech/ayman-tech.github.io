@@ -23,6 +23,7 @@
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  
 </head>
 <body>
 <article class="markdown-body">
@@ -132,9 +133,9 @@
 </li>
 <li>
 <p><strong>Risk Function</strong> R : Expected loss of (after) making each decision<br/>
-    $\hspace{10em} R = \int R(\alpha_i|x) p(x)\ dx$ ,<br/>
+    $R = \int R(\alpha_i|x) p(x)\ dx$ ,<br/>
     where $R(\alpha_i|x) = \sum\limits_{j=1}\limits^{n} \lambda_{ij}\ P(w_j|x) \qquad$ and $\lambda$ is loss function <br/>
-    $\qquad \lambda(a_i|w_j) = \lambda_{ij}$ is cost of selecting class i when sample belongs to class j  </p>
+    $\lambda(a_i|w_j) = \lambda_{ij}$ is cost of selecting class i when sample belongs to class j  </p>
 </li>
 <li>
 <p><strong>Goal of Bayesian decision theory:</strong> choose class i if : $\quad R(\alpha_j|x) \le R(\alpha_j|x) \qquad \forall j\ne i$  </p>
@@ -215,10 +216,10 @@
 <p>Likelihood fn  $p(D|\theta)$ measures how likely observed data is for diff param vals.  </p>
 </li>
 <li>
-<p>Let dataset D contain n samples$p(D|\theta) = \prod\limits_{k=1}\limits^n p(x_k|\theta)$ <br/>
+<p>Let dataset D contain n samples $p(D|\theta) = \prod\limits_{k=1}\limits^n p(x_k|\theta)$ <br/>
     having natural log for likelihood, called Log-Likelihood<br/>
-    $\hspace{10em} \ln(\theta) = \ln p(D|\theta) = \sum\limits_{k=1}\limits^n \ln p(x_k|\theta)$<br/>
-    $\hspace{10em} \frac{d}{d\theta} \ln (\theta) = \sum\limits_{k=1}\limits^n \frac{d}{d\theta} \ln p(x_k|\theta)$<br/>
+    $\ln(\theta) = \ln p(D|\theta) = \sum\limits_{k=1}\limits^n \ln p(x_k|\theta)$<br/>
+    $\frac{d}{d\theta} \ln (\theta) = \sum\limits_{k=1}\limits^n \frac{d}{d\theta} \ln p(x_k|\theta)$<br/>
     set $\frac{d}{d\theta} \ln(\theta) = 0 $ and solve for params  </p>
 </li>
 <li>
@@ -337,13 +338,11 @@
 </ul>
 <h3 class="atx" id="info-gain">Info Gain</h3>
 <p>Measures how much feature tells about class label:  </p>
-<p>$$<br/>
-I(X,Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)<br/>
-$$  </p>
+<p>$I(X,Y) = H(X) - H(X|Y) $ = $ H(Y) - H(Y|X)$  </p>
 <p>where,  </p>
-<p>$\hspace{10em} Entropy\ for\ x:\qquad H(X) = -\sum\limits_{i=1}\limits^n P(x=i) \log_2P(X=i)$<br/>
-$\hspace{10em} H(X|Y=v) = -\sum\limits_{i=1}\limits^n P(x=i|Y=v) \log_2P(X=i|Y=v)$<br/>
-$\hspace{10em} H(X|Y) = \sum\limits_{v\in Y} P(Y=v)* H(X|Y=v)$  </p>
+<p>Entropy for x:  $H(X) = -\sum\limits_{i=1}\limits^n P(x=i) \log_2P(X=i)$<br/>
+$H(X|Y=v) $ = $ -\sum\limits_{i=1}\limits^n P(x=i|Y=v) \log_2P(X=i|Y=v)$<br/>
+$H(X|Y) = \sum\limits_{v\in Y} P(Y=v)* H(X|Y=v)$  </p>
 <p><em>Note</em> : To prevent Overfitting -  </p>
 <ol>
 <li>
@@ -442,7 +441,7 @@ $\hspace{10em} H(X|Y) = \sum\limits_{v\in Y} P(Y=v)* H(X|Y=v)$  </p>
 <li>
 <p>Instead of calculating loss in each iteration, we vectorize it<br/>
     $J(w) = \frac{1}{2n} ||X_W - y||^2$<br/>
-    $\qquad = \frac{1}{2n} (X_W - y)^T(X_W - y)\ \ \propto\ \ w^TX^TX_W - 2w^TX^Ty + y^Ty$<br/>
+    $\qquad = \frac{1}{2n} (X_W - y)^T(X_W - y)\ $ $ \propto $  $ w^TX^TX_W - 2w^TX^Ty + y^Ty$<br/>
     taking gradient and solving = 0<br/>
     $(X^TX)w - X^Ty = 0$<br/>
     $w = (X^TX)^{-1}X^Ty$    <strong>closed form solution</strong> </p>
@@ -520,7 +519,7 @@ $\qquad x_j^{(i)} \leftarrow \frac{x_j^{(i)}-\mu_j}{s_j}, \qquad j=1,2,.... d$, 
 </li>
 <li>
 <p>Instead we use <strong>log-loss</strong> or <strong>cross-entropy loss</strong> or negative log-likelihood:<br/>
-    $J(\theta) = -\sum\limits_{i=1}\limits^n\  [\ y^{(i)} \log h_\theta (x^{(i)}) + (1-y^{(i)}) \log (1-h_\theta(x^{(i)}))\ ]$  </p>
+    $J(\theta) = -\sum\limits_{i=1}\limits^n\  [\ y^{(i)} \log h_\theta (x^{(i)}) $ + $ (1-y^{(i)}) \log (1-h_\theta(x^{(i)}))\ ]$  </p>
 </li>
 <li>
 <p>We use gradient descent to update the params to reduce cost. <br/>
@@ -581,7 +580,7 @@ $\qquad x_j^{(i)} \leftarrow \frac{x_j^{(i)}-\mu_j}{s_j}, \qquad j=1,2,.... d$, 
 <ul>
 <li>
 <p>minimize negative log-likelihood (cross-entropy loss)<br/>
-    $J(\theta) = -\sum\limits_{i=1}\limits^n\ [\ y^{(i)} \log h_\theta (x^{(i)}) + (1-y^{(i)}) \log (1-h_\theta(x^{(i)}))\ ]$  </p>
+    $J(\theta) = -\sum\limits_{i=1}\limits^n\ [\ y^{(i)} \log h_\theta (x^{(i)})$ + $(1-y^{(i)}) \log (1-h_\theta(x^{(i)}))\ ]$  </p>
 </li>
 <li>
 <p>This cost fn is convex, gradient descent will converge to global min with appropriate learning rate  </p>
@@ -700,7 +699,7 @@ $\qquad x_j^{(i)} \leftarrow \frac{x_j^{(i)}-\mu_j}{s_j}, \qquad j=1,2,.... d$, 
 <p>For C classes {1, 2, ... C}:  </p>
 </li>
 <li>
-<p>Softmax function : $p(y=c|x: \theta_1.....\theta_C) = \frac{exp(\theta_c^Tx)}{\sum_{j=1}^C exp(\theta_j^Tx)} $  </p>
+<p>Softmax function : $p(y=c|x: \theta_1.....\theta_C) $ = $\frac{exp(\theta_c^Tx)}{\sum_{j=1}^C exp(\theta_j^Tx)} $  </p>
 </li>
 <li>
 <p>Better because it offers joint probability modeling, better scalability, and cleaner decision boundaries.  </p>
@@ -738,6 +737,7 @@ $\qquad x_j^{(i)} \leftarrow \frac{x_j^{(i)}-\mu_j}{s_j}, \qquad j=1,2,.... d$, 
 </tr>
 </tbody>
 </table>
+<p>ROC Curve is a plot of the TP rate against the FP rate. It shows the tradeoff between sensitivity and specificity.  </p>
 <h3 class="atx" id="confusion-matrix">Confusion Matrix</h3>
 <table>
 <thead>
@@ -841,6 +841,304 @@ $\qquad x_j^{(i)} \leftarrow \frac{x_j^{(i)}-\mu_j}{s_j}, \qquad j=1,2,.... d$, 
 </li>
 <li>
 <p>Reject H0 if p-val P(m|H0) &lt;= S, where S is <em>predetermined</em> significance val (usually 0.05) and m is test statistic from data based on type of test.  </p>
+</li>
+</ul>
+<h2 class="atx" id="support-vector-machines-svm">Support Vector Machines (SVM)</h2>
+<ul>
+<li>
+<p>Supervised Learning model used primarily for classification models.  </p>
+</li>
+<li>
+<p>It tries to find best seperating hyperplane to divide input into 2 classes by maximizing margin (dist b/w seperating hyperplane and nearest training example).  </p>
+</li>
+<li>
+<p>Doesnt just seperate data into 2 classes, but seperates with widest possiblebuffer zone. This helps generalize well  </p>
+</li>
+<li>
+<p>This makes model robust to small part durations in data and helps reduce overfitting.  </p>
+</li>
+<li>
+<p>For noise in data, perfect seperation may not be possible (can have mislabeled or overlapping pts), SVM's use soft margin to deal with it.  </p>
+<ul>
+<li>
+<p>Soft margin balance b/w margin and maximization and classification accuracy.  </p>
+</li>
+<li>
+<p>Rather than forcing every pt to be correctly classified, they allow for some violation (slack variables).  </p>
+</li>
+<li>
+<p>SVM shine in noisy high dimension spaces, they find robust decision boundaries.  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>SVM : $min_\theta\ C \sum\limits_{i=1}^n [y_i\ cost_1(\theta^Tx_i)\ +$  $ (1-y_y)\ cost_0(\theta^Tx_i)] - \frac{1}{2}\sum\limits_{j=1}^d \theta^2_j$ the last part is of regularization<br/>
+    C balances margin maximization with error penalties. its conceptually similar to inverse of regularization in logistic regression $C\sim 1/\lambda$   </p>
+</li>
+<li>
+<p>High C =&gt; Penalizes misclassification heavily, lower C =&gt; allows more slack variables.<br/>
+    Adjust C to tune tolerance to noise.  </p>
+</li>
+<li>
+<p>Dual form of SVM : Maximize $J(\alpha) = \sum\limits_{i=1}^n \alpha_i - \frac{1}{2} \sum\limits_{i=1}^n\sum\limits_{j=1}^n \alpha_i \alpha_j y_i y_j <x_i, x_j="">$ <br/>
+    $\sum_i\alpha_i y_i = 0$ balances wt of contraints for diff classes and \&lt;xi, xj&gt; measures  similarity b/w pts<br/>
+    xi and xj represents features of data, \&lt;xi, xj&gt; is dot product of feature vectors is similarity of xi and xj (how closely they are in feature space)  </x_i,></p>
+<ul>
+<li>
+<p>each training pt gets a rate called alpha which reflects how imp pt is.  </p>
+<ul>
+<li>
+<p>$\alpha_i &gt; 0$ : point is support vector  </p>
+</li>
+<li>
+<p>$\alpha_i = 0$ : point is not a support vector  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>$J(\alpha)$ signifies the objective function in the dual form of SVM. By finding the maximum value of this function, you determine the best boundary that separates different classes in your data.  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Decision Fn : $h(x) = sign(\sum_{i\in SV} \alpha_i y_i<x,x_i> + b)$<br/>
+    where $b=\frac{1}{|SV|} \sum_{i\in SV} (y_i - \sum_{j \in SV} \alpha_j y_j <x_i, x_j="">)$<br/>
+    this is just like h(x) = wx+b  </x_i,></x,x_i></p>
+</li>
+</ul>
+<h3 class="atx" id="kernels-in-svm">Kernels in SVM</h3>
+<ul>
+<li>
+<p>Kernels allow SVM to create flexible, non linear decision boundaries without directly transforming input data to higher dimension.  </p>
+</li>
+<li>
+<p>Manully mapping input data to higher dimension is computationally expensive, Kernel lets us compute dot product of high dimensional space without actually mapping the data.  </p>
+</li>
+<li>
+<p>Technique of replacing dot product with kernel fns is known as kernel trick, by using it we train a linear classifer in an invisible high dimensional space while only doing calculations in original input space.<br/>
+    $J(\alpha) = \sum\limits_{i=1}^n \alpha_i - \frac{1}{2} \sum\limits_{i=1}^n\sum\limits_{j=1}^n \alpha_i \alpha_j y_i y_j\  K(x_i, x_j)$   </p>
+</li>
+<li>
+<p><strong>Polynomial Kernel</strong> </p>
+<ul>
+<li>
+<p>Calculates similarity based on powers of dot products.  </p>
+</li>
+<li>
+<p>for degree 2, $xi = [x{i1}, x_{i2}]$ and $xj = [x_{j1}, x_{j2}]$<br/>
+    $K(x_i, x_j)$ = $<xi, xj="">^d,\quad \phi(x)$ contains all monomials of degree d, for eg:<br/>
+    $ K(xi, xj) = <x_i, x_j="">^2 = (x_{i1}x_{j1} + x_{i2}x_{j2})^2$  </x_i,></xi,></p>
+</li>
+<li>
+<p>Lets us model curved boundaries and interactions b/w features without expanding original data manually.  </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Gaussian Kernel (Radial Basis Fn RBF Kernel)</strong> </p>
+<ul>
+<li>
+<p>$K(x_i, x_j) = exp(-\frac{||x_i - x_j||^2_2}{2\sigma^2})$  </p>
+</li>
+<li>
+<p>has val 1 when xi = xj, requiries feature scaling before use  </p>
+</li>
+<li>
+<p>it not only considers similarity b/w 2 pts but also how close they are in feature space.  </p>
+</li>
+<li>
+<p>Creates smooth flexible decision boundaries &amp; works well with high dimensional or messy data  </p>
+</li>
+<li>
+<p>Key parameter $\gamma = 1/(2\sigma^2)$ controls how far influence of each training pt reaches  </p>
+<ul>
+<li>
+<p>high gamma =&gt; over sensitive model and overfitting  </p>
+</li>
+<li>
+<p>low gamma =&gt; too smooth and underfits  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Other kernals are :  </p>
+<ul>
+<li>
+<p>Sigmoid Kernel : <br/>
+    $K(x_i, y_j) = tanh(\alpha x_i^T x_j + c)$  </p>
+</li>
+<li>
+<p>Cosine similarity Kernel :<br/>
+    $K(x_i, x_j) = \frac{x_i^T x_j}{||x_i||\ ||x_j||}$  </p>
+</li>
+<li>
+<p>Chi-Squared Kernel :<br/>
+    $K(x_i, x_j) = exp(-\gamma \sum\limits_k \frac{(x_{ik}-x_{jk})^2}{x_{ik}+x_{jk}})$  </p>
+</li>
+<li>
+<p>String Kernels  </p>
+</li>
+<li>
+<p>Tree Kernels  </p>
+</li>
+<li>
+<p>Graph Kernels  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Choosing right kernel:  </p>
+<ul>
+<li>
+<p>Clean data &amp; polynomial relationship =&gt; Polynomial Kernel  </p>
+</li>
+<li>
+<p>Messy or high dimensional data =&gt; Gaussian Kernel  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>To Use SVM : Choose Right kernel and its parameter (degree d for polynomial or gamma for RBF).  </p>
+<ul>
+<li>
+<p>Can use cross validation to select best hyperparameters  </p>
+</li>
+<li>
+<p>Theres tradeoff b/w model complexity and training time  </p>
+<ul>
+<li>more flexible kernels and larger data set can increase computation and risk of overfitting.  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="atx" id="k-nearest-neighbour">K-Nearest neighbour</h2>
+<ul>
+<li>
+<p>Its an instance based learning (memory-based learning), where we simply store training data instead of learning an implicit model, to predict we look the stored instances and predicts based on closest instance.  </p>
+</li>
+<li>
+<p><strong>1-NN</strong> </p>
+<ul>
+<li>
+<p>classify point by looking at single closest pt in dataset.  </p>
+</li>
+<li>
+<p>forms voronoi tesselation of instance space, ie each region around data pt is classified according to its nearest instance.  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Distance Metrics used :  </p>
+<ul>
+<li>
+<p>Euclidean Dist (a,b) = $\sqrt{(a_1-b_1)^2 + (a_2-b_2)^2}$  </p>
+</li>
+<li>
+<p>Manhattan Dist (a,b) = $\sum\limits_{i=1}^n |a_i - b_i|$  </p>
+</li>
+<li>
+<p>Minkowski Dist (a,b) = $<em>p\sqrt{\sum\limits</em>{i=1}^n |a_i-b_i|^p}$  </p>
+</li>
+<li>
+<p>Cosine Similarity (a,b) = $\frac{a \cdot b}{||a|| ||b||}$  </p>
+</li>
+<li>
+<p>Makes a lot of difference to choose metric especially when features are on diff scales or hve diff meanings  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>K-NN : Generalization of 1-NN, new pt assigned most frequent label of its k nearest neighbour  </p>
+</li>
+<li>
+<p>A vote is done among the k neighbours  </p>
+</li>
+</ul>
+<h2 class="atx" id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h2>
+<ul>
+<li>
+<p>Mathematical technique to find new set of axes (principal components), linear combinations of orig features.   </p>
+<ul>
+<li>
+<p>Principal component 1 - Direction of greatest variance  </p>
+</li>
+<li>
+<p>Subsequent principal components - orthogonal (perpendicular) to prev ones, capturing nxt largest variance  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Its finding best way to rotate and project data onto a lower dimension subspace while keeping as much variablity and info as possible.  </p>
+</li>
+<li>
+<p>Dimensionality reduction is about simplifying data, ignore components of lesser importance i.e. those that dont explain much variance.  </p>
+</li>
+<li>
+<p>Only top k principal components are chosen, we reduce no of features to analyze making subsequent learning tasks more efficient &amp; accurate.  </p>
+</li>
+<li>
+<p>Essential in img processing, genomics and text analytics, where multiple features and much of data's action happens in smaller space.  </p>
+</li>
+<li>
+<p>Steps :  </p>
+<ol>
+<li>
+<p>Standardize data and store in matrix B  </p>
+</li>
+<li>
+<p>Compute covariance matrix $\sum$  </p>
+</li>
+<li>
+<p>compute eigenVectors A and eigen Values Q  </p>
+</li>
+<li>
+<p>Sort by descending eigenvalues and select the top k eigenvectors (principal components).  </p>
+</li>
+<li>
+<p>Project data pts : $T = B\cdot A_{1:k}$<br/>
+    Each data gets new set of coordinates in reduced space  </p>
+</li>
+</ol>
+</li>
+<li>
+<p>Used for visualization, noise reduction, data compression, face recognition (eigenfaces), and in genetics, finance, marketing analytics and img processing.  </p>
+</li>
+<li>
+<p>Application in Facial Recognition :  </p>
+<ul>
+<li>
+<p>represent faces as eigenfaces (combination of "Standardized face ingredients").  </p>
+</li>
+<li>
+<p>each face is expressed as weighted sum of eighen faces  </p>
+</li>
+<li>
+<p>To recognise, face coefficients are calculated in eigenface space.  </p>
+</li>
+<li>
+<p>Use nearest neighbour classifier to compare coeff to stored avgs of each person  </p>
+</li>
+<li>
+<p>After a threshold, adding more data doesnt help much  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Application in img compression:  </p>
+<ul>
+<li>
+<p>divide img to smaller patches, each is treated as data vector in high dimensional space  </p>
+</li>
+<li>
+<p>Apply PCA and represesnt in top principal components  </p>
+</li>
+</ul>
+</li>
+<li>
+<p>similarly noise can be removed as it has less significance  </p>
 </li>
 </ul>
 </article>
